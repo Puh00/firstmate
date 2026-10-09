@@ -1,0 +1,4 @@
+base: exit 1
+not ok - branch prompt omits the completed-scout cleanup sequence or refusal reporting
+target: exit 0
+ok - emitted branch prompt routes completed scouts through existing policies and leased cleanup, preserving unfinished work
