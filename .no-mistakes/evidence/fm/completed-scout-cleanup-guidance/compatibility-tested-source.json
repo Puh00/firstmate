@@ -1,0 +1,14 @@
+{
+  "head": "85bef3f8126fd78636617be19e493bfb6dba7283",
+  "patch_sha256": "b388bfc867f0f0b939e9c73e84829e830e5ad57a19850a602b20d705b910ba76",
+  "files": {
+    "bin/fm-gate-refuse-lib.sh": "4f2474646afc4d8c7565aeb7f20ef39f3871a09ba0855e85fa2ca10562540d49",
+    "bin/fm-lab-home.sh": "9e9f685de10d1b7a5170ea3a16f213e9086db50737af70e4a3717cfe1094819c",
+    "tests/fm-gate-refuse.test.sh": "662d52130c33bbdce3055412a1d74a1704cc16d8ae3361b287ed8e1f2a814a35"
+  },
+  "managed_source": true,
+  "incoming_gate_marker": "present",
+  "bypass": "inactive",
+  "source_relocated": false,
+  "production_supervision_modified": false
+}

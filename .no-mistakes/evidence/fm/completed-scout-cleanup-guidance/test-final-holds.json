@@ -1,0 +1,12 @@
+{
+  "waiting": {
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "waiting-dataset": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": ""
+  }
+}

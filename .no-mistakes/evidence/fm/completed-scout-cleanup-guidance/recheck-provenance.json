@@ -1,0 +1,11 @@
+{
+  "revision": "9b7cbb41ebee29ae344649136e54ec426fb14298",
+  "managed_git_source": true,
+  "incoming_gate_marker": "present",
+  "bypass": "inactive",
+  "tracked_diff_empty": true,
+  "isolation": "private user, PID, mount, proc namespaces; overlay writes inside worktree",
+  "primary": "real pi CLI, openai/gpt-6.1-sol, production fm-branch-supervision extension",
+  "cleanup_exit": 0,
+  "default_tripwire": "helper teardown succeeded"
+}

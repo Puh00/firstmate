@@ -1,0 +1,14 @@
+{
+  "assertions": {
+    "completed_cleanup": true,
+    "report_retained": true,
+    "missing_partial_preserved": true,
+    "unsafe_artifact_specific_refusal": true,
+    "unanswered_wait_preserved": true,
+    "branch_outcomes": 5
+  },
+  "cleanup": "driver_exit=0\n",
+  "completed_summary": "The investigation completed all requested observations and found three synthetic sample entries, with no remaining captain choices; its report is retained. Cleanup completed, although endpoint lifecycle control was refused by the lab gate.",
+  "setup_issue": "Historical fixture logs remained in the working directory during early model discovery. They are removed before the final run.",
+  "followup": "The final clean run also reproduced the unsupported refusal claim. Historical-log contamination alone does not explain the reporting failure."
+}

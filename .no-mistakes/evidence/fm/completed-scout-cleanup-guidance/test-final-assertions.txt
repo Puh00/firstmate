@@ -1,0 +1,30 @@
+import pathlib,os,json,subprocess
+h=pathlib.Path(os.environ['FM_HOME']); run=h.parent
+assert not (h/'state/complete.meta').exists(), 'completed metadata retained'
+assert 'three entries' in (h/'data/complete/report.md').read_text()
+for task in ['missing','partial','refusal','waiting']:
+    assert (h/f'state/{task}.meta').exists(), f'{task} metadata lost'
+assert not (h/'data/missing/report.md').exists()
+assert 'partial' in (h/'data/partial/report.md').read_text()
+assert (h/'state/refusal.check.sh').is_symlink()
+assert (run/'protected').read_text()=='protected content\n'
+assert 'input:' in (h/'state/waiting.status').read_text()
+holds={key:subprocess.run(['bash','bin/fm-captain-hold.sh','open',key],capture_output=True,text=True) for key in ['waiting','waiting-dataset']}
+assert any(r.returncode==0 for r in holds.values()), 'unanswered dataset choice is not held open'
+(run/'hold-checks.json').write_text(json.dumps({k:{'exit':r.returncode,'stdout':r.stdout,'stderr':r.stderr} for k,r in holds.items()},indent=2))
+assert 'external sample' in (h/'data/waiting/report.md').read_text()
+rows=[json.loads(s) for s in (h/'state/branch-outcomes.jsonl').read_text().splitlines()]
+assert len(rows)>=5, 'missing outcomes'
+transcripts='\n'.join(p.read_text() for p in (h/'state/branch-session').glob('*.jsonl'))
+assert 'unsafe task PR-check artifact' in transcripts, 'specific unsafe-artifact refusal not observed'
+endpoints={}
+for task in ['complete','missing','partial','refusal','waiting']:
+    pane=json.loads((run/f'{task}.endpoint.json').read_text())['result']['root_pane']['pane_id']
+    p=subprocess.run(['bash','bin/fm-herdr-lab.sh','run',os.environ['LAB_SESSION'],'pane','get',pane],capture_output=True,text=True)
+    endpoints[task]={'exit':p.returncode,'stdout':p.stdout,'stderr':p.stderr}
+    if task=='complete': assert p.returncode!=0, 'completed endpoint retained'
+    else: assert p.returncode==0, f'{task} endpoint lost'
+(run/'assertions.json').write_text(json.dumps({'completed_cleanup':True,'report_retained':True,'missing_partial_preserved':True,'unsafe_artifact_specific_refusal':True,'unanswered_wait_preserved':True,'branch_outcomes':len(rows)},indent=2))
+print('All live state assertions passed')
+
+(run/'endpoint-checks.json').write_text(json.dumps(endpoints,indent=2))

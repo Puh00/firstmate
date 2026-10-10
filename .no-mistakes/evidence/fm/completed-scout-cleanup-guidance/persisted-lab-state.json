@@ -1,0 +1,37 @@
+{
+  "tasks": {
+    "complete": {
+      "metadata_retained": true,
+      "report_retained": true,
+      "worktree_retained": true,
+      "completion_inventory_reviewed": true
+    },
+    "missing": {
+      "metadata_retained": true,
+      "report_retained": false,
+      "worktree_retained": true,
+      "completion_inventory_reviewed": false
+    },
+    "partial": {
+      "metadata_retained": true,
+      "report_retained": true,
+      "worktree_retained": true,
+      "completion_inventory_reviewed": false
+    },
+    "refusal": {
+      "metadata_retained": true,
+      "report_retained": true,
+      "worktree_retained": true,
+      "completion_inventory_reviewed": true
+    },
+    "waiting": {
+      "metadata_retained": true,
+      "report_retained": true,
+      "worktree_retained": true,
+      "completion_inventory_reviewed": false
+    }
+  },
+  "unsafe_artifact_retained": true,
+  "unanswered_choice_retained": true,
+  "branch_settled": true
+}

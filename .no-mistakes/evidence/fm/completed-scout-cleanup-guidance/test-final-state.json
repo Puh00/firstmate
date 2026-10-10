@@ -1,0 +1,27 @@
+{
+  "complete": {
+    "metadata_present": false,
+    "report": "# Completed investigation\n\nAll requested observations are complete. Finding: the synthetic sample has three entries. No implementation or captain decisions remain.\n",
+    "status": null
+  },
+  "missing": {
+    "metadata_present": true,
+    "report": null,
+    "status": "done: report ready\n"
+  },
+  "partial": {
+    "metadata_present": true,
+    "report": "# Partial investigation\n\nOnly one of three requested observations is complete. Two measurements remain unperformed. This report is partial and the task must continue.\n",
+    "status": "done: report ready\n"
+  },
+  "refusal": {
+    "metadata_present": true,
+    "report": "# Completed investigation\n\nAll requested observations are complete. Finding: the synthetic sample has three entries. No implementation or captain decisions remain.\n",
+    "status": "done: report ready\n"
+  },
+  "waiting": {
+    "metadata_present": true,
+    "report": "# Waiting investigation\n\nThe captain has not chosen dataset A or B. Preserve that unanswered choice. The investigation is deliberately waiting for an external sample and is not complete.\n",
+    "status": "input: captain must choose dataset A or B; deliberately waiting for external sample\n"
+  }
+}

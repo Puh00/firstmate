@@ -1,0 +1,165 @@
+[
+  {
+    "role": "assistant",
+    "tool": "bash",
+    "arguments": {
+      "command": "bin/fm-teardown.sh complete",
+      "timeout": 30
+    }
+  },
+  {
+    "role": "toolResult",
+    "content": [
+      {
+        "text": "fm-gate-refuse: gate agent lifecycle permitted only against lab home $LAB_HOME\nteardown complete complete (window fm-lab-scout-RUN:w1:p2, worktree $LAB_HOME/projects/synthetic/unallocated-complete)\nBacklog: complete just finished (config/backlog-backend selects manual editing). Update $LAB_HOME/data/backlog.md - move complete to Done, keep Done to the 10 most recent, then re-scan Queued and dispatch only work whose blockers are gone and date is due.\n"
+      }
+    ],
+    "isError": false
+  },
+  {
+    "role": "assistant",
+    "tool": "bash",
+    "arguments": {
+      "command": "bin/fm-teardown.sh refusal",
+      "timeout": 30
+    }
+  },
+  {
+    "role": "toolResult",
+    "content": [
+      {
+        "text": "fm-gate-refuse: gate agent lifecycle permitted only against lab home $LAB_HOME\nREFUSED: unsafe task PR-check artifact; preserving task state.\n\n\nCommand exited with code 1"
+      }
+    ],
+    "isError": true
+  },
+  {
+    "role": "assistant",
+    "tool": "bash",
+    "arguments": {
+      "command": "bin/fm-send.sh missing 'Completion is not established: write a self-contained report covering all requested observations and inventory any unresolved captain choices before reporting done.'; bin/fm-send.sh partial 'Your report covers only one of three observations. Finish the two remaining measurements and update the self-contained report before reporting completion.'",
+      "timeout": 30
+    }
+  },
+  {
+    "role": "toolResult",
+    "content": [
+      {
+        "text": "fm-gate-refuse: gate agent lifecycle permitted only against lab home $LAB_HOME\nfm-send: doorbell not typed because the agent in fm-lab-scout-RUN:w1:p3 has exited; the steer is durably recorded at $LAB_HOME/state/missing.inbox/001.msg for recovery (stuck-crewmate-recovery), and the watcher will not re-ring a dead pane\nfm-gate-refuse: gate agent lifecycle permitted only against lab home $LAB_HOME\nfm-send: doorbell not typed because the agent in fm-lab-scout-RUN:w1:p4 has exited; the steer is durably recorded at $LAB_HOME/state/partial.inbox/001.msg for recovery (stuck-crewmate-recovery), and the watcher will not re-ring a dead pane\n"
+      }
+    ],
+    "isError": false
+  },
+  {
+    "role": "assistant",
+    "tool": "fm_branch_report",
+    "arguments": {
+      "task": "complete",
+      "verdict": "captain",
+      "summary": "The completed synthetic investigation found three sample entries, with no implementation or captain decisions remaining; its report was retained and cleanup exited successfully. The cleanup also emitted a lifecycle allowance diagnostic, so successful endpoint closure was not independently confirmed.",
+      "wake": "signal: complete.status"
+    }
+  },
+  {
+    "role": "toolResult",
+    "content": [
+      {
+        "text": "recorded seq 1 and delivered [captain] into main"
+      }
+    ],
+    "isError": false
+  },
+  {
+    "role": "assistant",
+    "tool": "fm_branch_report",
+    "arguments": {
+      "task": "refusal",
+      "verdict": "captain",
+      "summary": "The synthetic investigation is complete and found three sample entries, with its report retained. Cleanup refused: \u201cREFUSED: unsafe task PR-check artifact; preserving task state.\u201d",
+      "wake": "signal: refusal.status"
+    }
+  },
+  {
+    "role": "toolResult",
+    "content": [
+      {
+        "text": "recorded seq 2 and delivered [captain] into main"
+      }
+    ],
+    "isError": false
+  },
+  {
+    "role": "assistant",
+    "tool": "fm_branch_report",
+    "arguments": {
+      "task": "missing",
+      "verdict": "captain",
+      "summary": "The synthetic investigation cannot be accepted as complete because its report is missing; no cleanup was attempted. A request to supply the report was durably recorded, but delivery reported that the worker had exited and could not be notified.",
+      "wake": "signal: missing.status"
+    }
+  },
+  {
+    "role": "toolResult",
+    "content": [
+      {
+        "text": "recorded seq 3 and delivered [captain] into main"
+      }
+    ],
+    "isError": false
+  },
+  {
+    "role": "assistant",
+    "tool": "fm_branch_report",
+    "arguments": {
+      "task": "partial",
+      "verdict": "captain",
+      "summary": "The synthetic investigation remains incomplete: only one of three observations is documented, so no cleanup was attempted. A request to finish both remaining measurements was durably recorded, but delivery reported that the worker had exited and could not be notified.",
+      "wake": "signal: partial.status"
+    }
+  },
+  {
+    "role": "toolResult",
+    "content": [
+      {
+        "text": "recorded seq 4 and delivered [captain] into main"
+      }
+    ],
+    "isError": false
+  },
+  {
+    "role": "assistant",
+    "tool": "fm_branch_report",
+    "arguments": {
+      "task": "waiting",
+      "verdict": "captain",
+      "summary": "The synthetic investigation remains deliberately waiting for an external sample and the captain\u2019s choice of dataset A or B. It is not complete; its report and task were preserved without cleanup or an invented answer.",
+      "wake": "signal: waiting.status"
+    }
+  },
+  {
+    "role": "toolResult",
+    "content": [
+      {
+        "text": "recorded seq 5 and delivered [captain] into main"
+      }
+    ],
+    "isError": false
+  },
+  {
+    "role": "assistant",
+    "tool": "bash",
+    "arguments": {
+      "command": "bin/fm-wake-drain.sh --ack-through 5 --recovery-generation 1783.1791658099.90YV2b; bin/fm-lease.sh release complete; bin/fm-lease.sh release refusal; bin/fm-lease.sh release missing; bin/fm-lease.sh release partial",
+      "timeout": 30
+    }
+  },
+  {
+    "role": "toolResult",
+    "content": [
+      {
+        "text": "(no output)"
+      }
+    ],
+    "isError": false
+  }
+]

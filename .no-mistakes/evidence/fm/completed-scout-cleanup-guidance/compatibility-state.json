@@ -1,0 +1,25 @@
+{
+  "state/refusal.status": "done: report ready\n",
+  "state/refusal.meta": "project=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-refusal\nwindow=fm-lab-scout-10-13716:w1:p5\nendpoint_task_id=refusal\nherdr_session=fm-lab-scout-10-13716\nherdr_workspace_id=w1\nherdr_tab_id=w1:t5\nherdr_pane_id=w1:p5\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-refusal\ndecisions_reviewed=1\ndecision_keys=\n",
+  "state/partial.meta": "project=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-partial\nwindow=fm-lab-scout-10-13716:w1:p4\nendpoint_task_id=partial\nherdr_session=fm-lab-scout-10-13716\nherdr_workspace_id=w1\nherdr_tab_id=w1:t4\nherdr_pane_id=w1:p4\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-partial\n",
+  "state/waiting.status": "input: captain must choose dataset A or B; deliberately waiting for external sample\n",
+  "state/refusal.check.sh": {
+    "symlink": "[RUN]/protected"
+  },
+  "state/partial.status": "done: report ready\n",
+  "state/missing.status": "done: report ready\n",
+  "state/waiting.meta": "project=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-waiting\nwindow=fm-lab-scout-10-13716:w1:p6\nendpoint_task_id=waiting\nherdr_session=fm-lab-scout-10-13716\nherdr_workspace_id=w1\nherdr_tab_id=w1:t6\nherdr_pane_id=w1:p6\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-waiting\n",
+  "state/missing.meta": "project=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-missing\nwindow=fm-lab-scout-10-13716:w1:p3\nendpoint_task_id=missing\nherdr_session=fm-lab-scout-10-13716\nherdr_workspace_id=w1\nherdr_tab_id=w1:t3\nherdr_pane_id=w1:p3\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-missing\n",
+  "state/missing.inbox/001.msg": "schema=fm-task-inbox.v1\nat=2026-10-10T18:28:30Z\n--\nCompletion requires a self-contained report; write the full investigation report before declaring done.",
+  "state/partial.inbox/001.msg": "schema=fm-task-inbox.v1\nat=2026-10-10T18:28:30Z\n--\nFinish the two remaining measurements and publish the complete report; preserve the partial findings.",
+  "data/backlog.md": "# Backlog\n\n## In flight\n## Queued\n- [ ] waiting-dataset - Choose synthetic dataset (repo: synthetic) (kind: captain) (since 2026-10-10) (hold: fm-hold-v1:Q2hvb3NlIGRhdGFzZXQgQSBvciBCOyBpbnZlc3RpZ2F0aW9uIGFsc28gYXdhaXRzIGFuIGV4dGVybmFsIHNhbXBsZQ==) (hold-kind: captain)\n  Captain hold set: 2026-10-10T18:28:36Z\n  Captain hold origin: waiting\n\n  Origin: waiting\n## Done\n",
+  "data/partial/brief.md": "Scout task partial: inspect the synthetic sample and report the complete observations. No implementation is requested.\n",
+  "data/partial/report.md": "# Partial investigation\n\nOnly one of three requested observations is complete. Two measurements remain unperformed. This report is partial and the task must continue.\n",
+  "data/complete/brief.md": "Scout task complete: inspect the synthetic sample and report the complete observations. No implementation is requested.\n",
+  "data/complete/report.md": "# Completed investigation\n\nAll requested observations are complete. Finding: the synthetic sample has three entries. No implementation or captain decisions remain.\n",
+  "data/missing/brief.md": "Scout task missing: inspect the synthetic sample and report the complete observations. No implementation is requested.\n",
+  "data/refusal/brief.md": "Scout task refusal: inspect the synthetic sample and report the complete observations. No implementation is requested.\n",
+  "data/refusal/report.md": "# Completed investigation\n\nAll requested observations are complete. Finding: the synthetic sample has three entries. No implementation or captain decisions remain.\n",
+  "data/waiting/brief.md": "Scout task waiting: inspect the synthetic sample and report the complete observations. No implementation is requested.\n",
+  "data/waiting/report.md": "# Waiting investigation\n\nThe captain has not chosen dataset A or B. Preserve that unanswered choice. The investigation is deliberately waiting for an external sample and is not complete.\n"
+}

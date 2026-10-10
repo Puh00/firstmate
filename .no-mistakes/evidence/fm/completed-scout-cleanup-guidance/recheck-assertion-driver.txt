@@ -1,0 +1,33 @@
+import json, os, pathlib, subprocess
+home=pathlib.Path(os.environ['FM_HOME']); run=home.parent
+outcomes=[json.loads(x) for x in (home/'state/branch-outcomes.jsonl').read_text().splitlines()]
+endpoints={}; state={}
+for task in ['complete','missing','partial','refusal','waiting']:
+    pane=json.loads((run/f'{task}.endpoint.json').read_text())['result']['root_pane']['pane_id']
+    p=subprocess.run(['bash','bin/fm-herdr-lab.sh','run',os.environ['LAB_SESSION'],'pane','get',pane],capture_output=True,text=True)
+    endpoints[task]={'exit':p.returncode,'stdout':p.stdout,'stderr':p.stderr}
+    state[task]={}
+    for rel in [f'state/{task}.meta',f'state/{task}.status',f'data/{task}/report.md']:
+        path=home/rel
+        state[task][rel]=path.read_text() if path.exists() else None
+(run/'endpoints.json').write_text(json.dumps(endpoints,indent=2))
+(run/'state.json').write_text(json.dumps(state,indent=2))
+assert endpoints['complete']['exit'] != 0 and 'pane_not_found' in endpoints['complete']['stderr']
+assert state['complete']['state/complete.meta'] is None
+assert 'three entries' in state['complete']['data/complete/report.md']
+for t in ['missing','partial','refusal','waiting']:
+    assert endpoints[t]['exit']==0, t
+    assert state[t][f'state/{t}.meta'] is not None,t
+assert state['missing']['data/missing/report.md'] is None
+assert 'partial' in state['partial']['data/partial/report.md']
+assert 'dataset A or B' in state['waiting']['data/waiting/report.md']
+assert (run/'protected').read_text()=='protected content\n'
+assert (home/'state/refusal.check.sh').is_symlink()
+by_task={r['task']:r for r in outcomes}
+assert 'unsafe task PR-check artifact' in by_task['refusal']['summary']
+print('PASS: cleanup, retained findings, incomplete reports, unanswered choice, wait and unsafe-artifact preservation')
+summary=by_task['complete']['summary']
+print('Completed scout outcome:',summary)
+assert not any(word in summary.lower() for word in ['refus','blocked','denied']), summary
+assert any(word in summary.lower() for word in ['cleanup','cleaned','teardown','closed','removed']),summary
+print('PASS: completed scout reports successful cleanup without an invented refusal')

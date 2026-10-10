@@ -1,0 +1,27 @@
+{
+  "complete": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": "{\"error\":{\"code\":\"pane_not_found\",\"message\":\"pane w1:p2 not found\"},\"id\":\"cli:pane:get\"}\n"
+  },
+  "missing": {
+    "exit": 0,
+    "stdout": "{\"id\":\"cli:pane:get\",\"result\":{\"pane\":{\"agent_status\":\"unknown\",\"cwd\":\"[LAB]/projects/synthetic\",\"focused\":false,\"foreground_cwd\":\"[LAB]/projects/synthetic\",\"pane_id\":\"w1:p3\",\"revision\":1,\"scroll\":{\"max_offset_from_bottom\":0,\"offset_from_bottom\":0,\"viewport_rows\":40},\"tab_id\":\"w1:t3\",\"terminal_id\":\"term_65d80db388c9b3\",\"terminal_title\":\"root@5CG5322VQ6: ~/.no-mistakes/worktrees/2152a361c74a/01M4KAF0BHGDTN2FKF72JEXH2D/.test-evidence/after/home/projects/synthetic\",\"terminal_title_stripped\":\"root@5CG5322VQ6: ~/.no-mistakes/worktrees/2152a361c74a/01M4KAF0BHGDTN2FKF72JEXH2D/.test-evidence/after/home/projects/synthetic\",\"workspace_id\":\"w1\"},\"type\":\"pane_info\"}}\n",
+    "stderr": ""
+  },
+  "partial": {
+    "exit": 0,
+    "stdout": "{\"id\":\"cli:pane:get\",\"result\":{\"pane\":{\"agent_status\":\"unknown\",\"cwd\":\"[LAB]/projects/synthetic\",\"focused\":false,\"foreground_cwd\":\"[LAB]/projects/synthetic\",\"pane_id\":\"w1:p4\",\"revision\":1,\"scroll\":{\"max_offset_from_bottom\":0,\"offset_from_bottom\":0,\"viewport_rows\":40},\"tab_id\":\"w1:t4\",\"terminal_id\":\"term_65d80db38c7df4\",\"terminal_title\":\"root@5CG5322VQ6: ~/.no-mistakes/worktrees/2152a361c74a/01M4KAF0BHGDTN2FKF72JEXH2D/.test-evidence/after/home/projects/synthetic\",\"terminal_title_stripped\":\"root@5CG5322VQ6: ~/.no-mistakes/worktrees/2152a361c74a/01M4KAF0BHGDTN2FKF72JEXH2D/.test-evidence/after/home/projects/synthetic\",\"workspace_id\":\"w1\"},\"type\":\"pane_info\"}}\n",
+    "stderr": ""
+  },
+  "refusal": {
+    "exit": 0,
+    "stdout": "{\"id\":\"cli:pane:get\",\"result\":{\"pane\":{\"agent_status\":\"unknown\",\"cwd\":\"[LAB]/projects/synthetic\",\"focused\":false,\"foreground_cwd\":\"[LAB]/projects/synthetic\",\"pane_id\":\"w1:p5\",\"revision\":1,\"scroll\":{\"max_offset_from_bottom\":0,\"offset_from_bottom\":0,\"viewport_rows\":40},\"tab_id\":\"w1:t5\",\"terminal_id\":\"term_65d80db390a985\",\"terminal_title\":\"root@5CG5322VQ6: ~/.no-mistakes/worktrees/2152a361c74a/01M4KAF0BHGDTN2FKF72JEXH2D/.test-evidence/after/home/projects/synthetic\",\"terminal_title_stripped\":\"root@5CG5322VQ6: ~/.no-mistakes/worktrees/2152a361c74a/01M4KAF0BHGDTN2FKF72JEXH2D/.test-evidence/after/home/projects/synthetic\",\"workspace_id\":\"w1\"},\"type\":\"pane_info\"}}\n",
+    "stderr": ""
+  },
+  "waiting": {
+    "exit": 0,
+    "stdout": "{\"id\":\"cli:pane:get\",\"result\":{\"pane\":{\"agent_status\":\"unknown\",\"cwd\":\"[LAB]/projects/synthetic\",\"focused\":false,\"foreground_cwd\":\"[LAB]/projects/synthetic\",\"pane_id\":\"w1:p6\",\"revision\":1,\"scroll\":{\"max_offset_from_bottom\":0,\"offset_from_bottom\":0,\"viewport_rows\":40},\"tab_id\":\"w1:t6\",\"terminal_id\":\"term_65d80db3950a36\",\"terminal_title\":\"root@5CG5322VQ6: ~/.no-mistakes/worktrees/2152a361c74a/01M4KAF0BHGDTN2FKF72JEXH2D/.test-evidence/after/home/projects/synthetic\",\"terminal_title_stripped\":\"root@5CG5322VQ6: ~/.no-mistakes/worktrees/2152a361c74a/01M4KAF0BHGDTN2FKF72JEXH2D/.test-evidence/after/home/projects/synthetic\",\"workspace_id\":\"w1\"},\"type\":\"pane_info\"}}\n",
+    "stderr": ""
+  }
+}

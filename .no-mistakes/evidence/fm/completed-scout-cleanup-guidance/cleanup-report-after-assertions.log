@@ -1,0 +1,7 @@
+complete: complete captain-call inventory reviewed
+verified: complete captain-call inventory
+complete: refusal captain-call inventory reviewed
+verified: refusal captain-call inventory
+PASS: cleanup, retained findings, incomplete reports, unanswered choice, wait and unsafe-artifact preservation
+Completed scout outcome: The completed synthetic investigation found three sample entries, with no remaining implementation or captain decisions. Its report was retained and cleanup succeeded.
+PASS: completed scout reports successful cleanup without an invented refusal

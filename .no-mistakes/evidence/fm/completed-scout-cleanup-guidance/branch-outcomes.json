@@ -1,0 +1,47 @@
+[
+  {
+    "seq": 2,
+    "epoch": 1791650291,
+    "task": "complete",
+    "wake": "signal: complete.status",
+    "verdict": "captain",
+    "summary": "The cache investigation found that zero TTL causes the cache miss; its complete report is retained and no captain decisions remain. Cleanup was refused: error: refusing fleet lifecycle from inside a no-mistakes gate worktree ([GATE_REPOSITORY]).",
+    "silent": false
+  },
+  {
+    "seq": 3,
+    "epoch": 1791650297,
+    "task": "missing",
+    "wake": "signal: missing.status",
+    "verdict": "captain",
+    "summary": "The investigation claims completion but has no retained report, so it cannot be closed. A request to produce the report was refused: error: refusing fleet lifecycle from inside a no-mistakes gate worktree ([GATE_REPOSITORY]).",
+    "silent": false
+  },
+  {
+    "seq": 4,
+    "epoch": 1791650304,
+    "task": "partial",
+    "wake": "signal: partial.status",
+    "verdict": "captain",
+    "summary": "The investigation remains incomplete: the second measurement and conclusion are pending, and its scratch work was preserved. A corrective steer was refused: error: refusing fleet lifecycle from inside a no-mistakes gate worktree ([GATE_REPOSITORY]).",
+    "silent": false
+  },
+  {
+    "seq": 5,
+    "epoch": 1791650309,
+    "task": "refusal",
+    "wake": "signal: refusal.status",
+    "verdict": "captain",
+    "summary": "The cache investigation found that zero TTL causes the cache miss; its complete report is retained and no captain decisions remain. Cleanup was refused: error: refusing fleet lifecycle from inside a no-mistakes gate worktree ([GATE_REPOSITORY]).",
+    "silent": false
+  },
+  {
+    "seq": 6,
+    "epoch": 1791650315,
+    "task": "waiting",
+    "wake": "signal: waiting.status",
+    "verdict": "captain",
+    "summary": "Sampling is deliberately paused until you choose dataset A or B and the external provider delivers the requested input. That choice is already recorded for your decision; the incomplete investigation and scratch work remain preserved.",
+    "silent": false
+  }
+]

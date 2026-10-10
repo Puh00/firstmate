@@ -1,0 +1,373 @@
+[
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_aE0Tw5SqS6G1VA5WsCXseOkk|fc_098cbd3f1bcc3050016aca86fb2f8087d2bb9a458ce72dcb3a",
+        "name": "bash",
+        "arguments": {
+          "command": "bin/fm-wake-drain.sh",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "1791657716\t1\tsignal\tcomplete.status\tsignal: complete.status\n1791657716\t2\tsignal\tmissing.status\tsignal: missing.status\n1791657716\t3\tsignal\tpartial.status\tsignal: partial.status\n1791657716\t4\tsignal\trefusal.status\tsignal: refusal.status\n1791657716\t5\tsignal\twaiting.status\tsignal: waiting.status\nWAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 5 --recovery-generation 1783.1791657724.b9nU5P\nwake annotation: latest wake-EVENT observed at drain, not current state: complete.status: done: report ready\nwake annotation: latest wake-EVENT observed at drain, not current state: missing.status: done: report ready\nwake annotation: latest wake-EVENT observed at drain, not current state: partial.status: done: report ready\nwake annotation: latest wake-EVENT observed at drain, not current state: refusal.status: done: report ready\nwake annotation: latest wake-EVENT observed at drain, not current state: waiting.status: input: captain must choose dataset A or B; deliberately waiting for external sample\n"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_6Cb8vFmjsW0r1FkJvJuwDSCH|fc_098cbd3f1bcc3050016aca86ff7bf087d2b83d15c3aad39ab1",
+        "name": "bash",
+        "arguments": {
+          "command": "ls bin; for t in complete missing partial refusal waiting; do bin/fm-crew-state.sh \"$t\"; done",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "backends\nfm-afk-contract.sh\nfm-afk-launch.sh\nfm-afk-return.sh\nfm-afk-start.sh\nfm-agent-process-lib.sh\nfm-agy-trust.sh\nfm-arm-command-policy.mjs\nfm-arm-pretool-check.sh\nfm-backend-hometag-lib.sh\nfm-backend.sh\nfm-backlog-handoff.sh\nfm-backlog-receive.sh\nfm-backlog-transition-lib.sh\nfm-bearings-board.sh\nfm-bearings-snapshot.sh\nfm-bootstrap.sh\nfm-branch-dispatch.mjs\nfm-branch-outcome.sh\nfm-branch-prompt.sh\nfm-branch-report.sh\nfm-brief-heading-lib.sh\nfm-brief.sh\nfm-busy-event.sh\nfm-busy-lib.sh\nfm-captain-hold.sh\nfm-cd-command-policy.mjs\nfm-cd-pretool-check.sh\nfm-check-lib.sh\nfm-check-register.sh\nfm-check-unregister.sh\nfm-classify-lib.sh\nfm-claude-stop-autoarm.sh\nfm-claude-trust.sh\nfm-composer-lib.sh\nfm-config-inherit-lib.sh\nfm-config-push.sh\nfm-contributions.jq\nfm-contributions.sh\nfm-control-lib.sh\nfm-control.sh\nfm-crew-state.sh\nfm-cursor-lib.sh\nfm-decision-hold.sh\nfm-devin-config.sh\nfm-dispatch-resolve.sh\nfm-doc-audience-check.sh\nfm-dod-lib.sh\nfm-ensure-agents-md.sh\nfm-env-lib.sh\nfm-exclude-tools-lib.sh\nfm-extension-launch-barrier.mjs\nfm-extension.mjs\nfm-extension.sh\nfm-ff-lib.sh\nfm-fleet-ledger.sh\nfm-fleet-snapshot.sh\nfm-fleet-sync.sh\nfm-fleet-view.sh\nfm-forge-detect.sh\nfm-gate-refuse-lib.sh\nfm-gemini-lib.sh\nfm-git-strip-ai-trailers.sh\nfm-guard.sh\nfm-harness.sh\nfm-herdr-ci-cleanup.sh\nfm-herdr-lab-viewer.py\nfm-herdr-lab.sh\nfm-herdr-session-cleanup.sh\nfm-hold-reason-lib.sh\nfm-home-seed.sh\nfm-home-summary-refresh.sh\nfm-hook-host-lib.sh\nfm-host-mirror.sh\nfm-inactive-reconcile.sh\nfm-inbox.sh\nfm-install-actionlint.sh\nfm-install-herdr.sh\nfm-install-shellcheck.sh\nfm-install-treehouse.sh\nfm-jev-mem-guard.py\nfm-jev-mem-guard.sh\nfm-kimi-turnend-hook.sh\nfm-lab-home.sh\nfm-landed-lib.sh\nfm-lease-lib.sh\nfm-lease.sh\nfm-line-cap-lib.sh\nfm-lint-workflows.sh\nfm-lint.sh\nfm-live-lab.sh\nfm-lock-lib.sh\nfm-lock.sh\nfm-mail-check.sh\nfm-mail.py\nfm-mail.sh\nfm-marker-lib.sh\nfm-merge-authority-lib.sh\nfm-merge-local.sh\nfm-merge-outcome-lib.sh\nfm-nm-run-lib.sh\nfm-on.sh\nfm-operational-input.sh\nfm-parent-channel-lib.sh\nfm-path-lib.sh\nfm-peek.sh\nfm-pending-reply-lib.sh\nfm-pipeline-spend.sh\nfm-pr-check.sh\nfm-pr-lib.sh\nfm-pr-merge.sh\nfm-pr-poll.sh\nfm-pr-reviewers.sh\nfm-pr-state.sh\nfm-primary-scope-lib.sh\nfm-procevent-extension-capture.pl\nfm-procevent-lavish.sh\nfm-procevent-lib.sh\nfm-procevent-quota.sh\nfm-procevent-remote-reply.sh\nfm-procevent-when.sh\nfm-procevent.sh\nfm-project-capacity-lib.sh\nfm-project-mode.sh\nfm-project-origin-lib.sh\nfm-promote.sh\nfm-public-followup-collect.sh\nfm-public-followup-emit.sh\nfm-public-followup-lib.sh\nfm-public-followup.sh\nfm-push-transition-lib.sh\nfm-quota-axi-lib.sh\nfm-quota-choose.sh\nfm-remote-delta-read.sh\nfm-remote-doctor.sh\nfm-remote-entrypoint.sh\nfm-remote-file.sh\nfm-remote-herdr-guard.sh\nfm-remote-herdr-owner-lib.sh\nfm-remote-home-provision.sh\nfm-remote-home-seed.sh\nfm-remote-inherit-push.sh\nfm-remote-inherit.sh\nfm-remote-job-lib.sh\nfm-remote-job-reap-orphans.sh\nfm-remote-job-worker.sh\nfm-remote-readiness-lib.sh\nfm-remote-secondmate-control.sh\nfm-remote-secondmate-relaunch.sh\nfm-review-diff.sh\nfm-secondmate-charter-lib.sh\nfm-secondmate-liveness-lib.sh\nfm-secondmate-nudge-lib.sh\nfm-secondmate-parent-lib.sh\nfm-secondmate-reconcile.sh\nfm-secondmate-registry-lib.sh\nfm-secondmate-report.sh\nfm-secondmate-restart-lib.sh\nfm-secondmate-restart.sh\nfm-send.sh\nfm-session-lock-lib.sh\nfm-session-start.sh\nfm-sessionstart-cursor.sh\nfm-sessionstart-nudge.sh\nfm-sessionstart-run.sh\nfm-spawn.sh\nfm-startup-growth-check.sh\nfm-startup-memory-budget-lib.sh\nfm-startup-memory-budget.sh\nfm-startup-network.sh\nfm-stow-cascade.sh\nfm-subagent-pretool-check.sh\nfm-supervise-daemon.sh\nfm-supervision-engine-lib.sh\nfm-supervision-host.sh\nfm-supervision-instructions.sh\nfm-supervision-lib.sh\nfm-supervisor-target-lib.sh\nfm-tangle-lib.sh\nfm-task-inbox-lib.sh\nfm-tasks-axi-lib.sh\nfm-tasks-axi.sh\nfm-teardown.sh\nfm-test-isolation-proof.sh\nfm-test-run.sh\nfm-timeout-lib.sh\nfm-timing-lib.sh\nfm-tmux-lib.sh\nfm-tool-update-check.sh\nfm-trace-context-lib.sh\nfm-transition-lib.sh\nfm-turnend-guard-cursor.sh\nfm-turnend-guard-grok.sh\nfm-turnend-guard.sh\nfm-update.sh\nfm-vendor-auth-probe.sh\nfm-voice-client.py\nfm-voice-relay.py\nfm-wake-drain.sh\nfm-wake-grant.sh\nfm-wake-lib.sh\nfm-watch-arm.sh\nfm-watch-checkpoint.sh\nfm-watch.sh\nfm-worker-account-lib.sh\nfm-x-dismiss.sh\nfm-x-followup.sh\nfm-x-lib.sh\nfm-x-link.sh\nfm-x-poll.sh\nfm-x-reply.sh\nfm_voice_frame.py\nfm_voice_records.py\nstate: unknown \u00b7 source: none \u00b7 worktree gone (torn down?)\nstate: unknown \u00b7 source: none \u00b7 worktree gone (torn down?)\nstate: unknown \u00b7 source: none \u00b7 worktree gone (torn down?)\nstate: unknown \u00b7 source: none \u00b7 worktree gone (torn down?)\nstate: unknown \u00b7 source: none \u00b7 worktree gone (torn down?)\n"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_zzgp0QQxxnlmpMEx2GyM89Cp|fc_098cbd3f1bcc3050016aca8703219887d2bd97f6ed214d41a4",
+        "name": "bash",
+        "arguments": {
+          "command": "echo FM_HOME=$FM_HOME; ls state; ls /tmp | tail; find . -maxdepth 3 -iname '*synthetic*' -o -iname '*scout*' | head; cat state/{complete,missing,partial,refusal,waiting}.meta 2>/dev/null",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "FM_HOME=[LAB]\njiti\nnode-compile-cache\n./.agents/skills/scout-completion\n\n\nCommand exited with code 1"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_qlLugW0PZdANzECk3JcDJucE|fc_098cbd3f1bcc3050016aca87078cb887d2ac4e9e3be5fc0a3d",
+        "name": "bash",
+        "arguments": {
+          "command": "ls -la \"$FM_HOME\"; find .test-evidence -maxdepth 4 -type f | head -60; env | grep -E 'TEST|FM_'",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "[Ambient environment discovery omitted; provenance records lab bindings.]"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_fjwe4AKRq5SXwTgAADRQ8S5m|fc_098cbd3f1bcc3050016aca870ca32487d2b259102683acd361",
+        "name": "bash",
+        "arguments": {
+          "command": "cat \"$FM_HOME\"/state/*.meta; cat \"$FM_HOME\"/data/backlog.md; find \"$FM_HOME\"/data -type f",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "project=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-complete\nwindow=fm-lab-scout-12-24206:w1:p2\nendpoint_task_id=complete\nherdr_session=fm-lab-scout-12-24206\nherdr_workspace_id=w1\nherdr_tab_id=w1:t2\nherdr_pane_id=w1:p2\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-complete\ndecisions_reviewed=1\ndecision_keys=\nproject=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-missing\nwindow=fm-lab-scout-12-24206:w1:p3\nendpoint_task_id=missing\nherdr_session=fm-lab-scout-12-24206\nherdr_workspace_id=w1\nherdr_tab_id=w1:t3\nherdr_pane_id=w1:p3\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-missing\nproject=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-partial\nwindow=fm-lab-scout-12-24206:w1:p4\nendpoint_task_id=partial\nherdr_session=fm-lab-scout-12-24206\nherdr_workspace_id=w1\nherdr_tab_id=w1:t4\nherdr_pane_id=w1:p4\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-partial\nproject=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-refusal\nwindow=fm-lab-scout-12-24206:w1:p5\nendpoint_task_id=refusal\nherdr_session=fm-lab-scout-12-24206\nherdr_workspace_id=w1\nherdr_tab_id=w1:t5\nherdr_pane_id=w1:p5\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-refusal\ndecisions_reviewed=1\ndecision_keys=\nproject=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-waiting\nwindow=fm-lab-scout-12-24206:w1:p6\nendpoint_task_id=waiting\nherdr_session=fm-lab-scout-12-24206\nherdr_workspace_id=w1\nherdr_tab_id=w1:t6\nherdr_pane_id=w1:p6\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-waiting\ncat: [LAB]/data/backlog.md: No such file or directory\n[LAB]/data/partial/brief.md\n[LAB]/data/partial/report.md\n[LAB]/data/complete/brief.md\n[LAB]/data/complete/report.md\n[LAB]/data/missing/brief.md\n[LAB]/data/refusal/brief.md\n[LAB]/data/refusal/report.md\n[LAB]/data/waiting/brief.md\n[LAB]/data/waiting/report.md\n"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_hzNlhyRdhim3YxoeeHL7XxXI|fc_098cbd3f1bcc3050016aca871126c887d2abbfc1c7a15a2f95",
+        "name": "bash",
+        "arguments": {
+          "command": "for t in complete missing partial refusal waiting; do echo ==== $t; cat \"$FM_HOME/data/$t/brief.md\"; cat \"$FM_HOME/data/$t/report.md\" 2>/dev/null; done; bin/fm-captain-hold.sh --help",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "==== complete\nScout task complete: inspect the synthetic sample and report the complete observations. No implementation is requested.\n# Completed investigation\n\nAll requested observations are complete. Finding: the synthetic sample has three entries. No implementation or captain decisions remain.\n==== missing\nScout task missing: inspect the synthetic sample and report the complete observations. No implementation is requested.\n==== partial\nScout task partial: inspect the synthetic sample and report the complete observations. No implementation is requested.\n# Partial investigation\n\nOnly one of three requested observations is complete. Two measurements remain unperformed. This report is partial and the task must continue.\n==== refusal\nScout task refusal: inspect the synthetic sample and report the complete observations. No implementation is requested.\n# Completed investigation\n\nAll requested observations are complete. Finding: the synthetic sample has three entries. No implementation or captain decisions remain.\n==== waiting\nScout task waiting: inspect the synthetic sample and report the complete observations. No implementation is requested.\n# Waiting investigation\n\nThe captain has not chosen dataset A or B. Preserve that unanswered choice. The investigation is deliberately waiting for an external sample and is not complete.\nfm-captain-hold.sh - deterministic mechanics for tasks held for the captain.\n\nThe semantic policy is owned once by\n.agents/skills/captain-hold-lifecycle/SKILL.md. This script never reads\nreport, visual-review, chat, or terminal prose to guess whether the captain\nowes an answer. The invoking agent decides what is genuinely waiting on the\ncaptain; this script supplies guarded creation, a durable record of what the\ncaptain actually said, the investigation completion gate, and the one\nkeyed-answer intake every channel feeds.\n\nThere is no separate decision type. A captain call is an ordinary backlog\ntask held for the captain through this script's mandatory `hold` subcommand,\nand its identity is simply the task id. Older installs created derived\n`<origin>-decision-<key>` identities through bin/fm-decision-hold.sh; those\nrows are already plain task ids, so they keep working here unchanged, and\nthe legacy inputs noted below resolve them without a migration.\nAll backlog reads and mutations address the active home's configured data\ndirectory the way bin/fm-backlog-transition-lib.sh does, which keeps main-home\nand secondmate-home ownership aligned with the work that discovered the call.\n\nUsage:\n  fm-captain-hold.sh hold <task-id> --reason <reason> \\\n    [--title <title>] [--repo <repo>] [--origin <origin-id>] [--until YYYY-MM-DD]\n  fm-captain-hold.sh answer <task-id> --decision-file <path> [--release]\n  fm-captain-hold.sh answers [<legacy-origin> | --any-origin] --source <provenance>   (keyed answers on stdin)\n  fm-captain-hold.sh reconcile-requests --source-id <source-id> --source <provenance>   (task ids on stdin)\n  fm-captain-hold.sh bind <source-id> [<legacy-origin> | --any-origin]\n  fm-captain-hold.sh unbind <source-id>\n  fm-captain-hold.sh binding <source-id>\n  fm-captain-hold.sh complete <origin-id> (--none | <task-id>...)\n  fm-captain-hold.sh verify <origin-id>\n  fm-captain-hold.sh open <task-id> [--identity] [--distinguish-absent]\n  fm-captain-hold.sh diverged\n  fm-captain-hold.sh reconcile list\n  fm-captain-hold.sh reconcile close <task-id> --evidence-file <path>\n  fm-captain-hold.sh reconcile note <task-id> --note-file <path>\n\n`hold` places an existing task under an active captain hold, or creates the\ntask first when no work item exists to hold (--title required to create; the\noptional --origin records provenance in the new task's body and supplies the\ndefault repo from that origin's metadata). Prefer holding the work item the\nquestion gates over minting a new row. Creating a missing row uses\n`tasks-axi add --kind captain`: that kind is backlog metadata, and the Beads\nadapter maps it to native issue type `task`. Captain holds have no due\nsemantics (`--until` is the optional hold deferral), so the create waives\nBeads `due.required` through `BD_DUE_REQUIRED` rather than inventing a due\ndate or registering a `types.custom` captain issue type. The command records\na UTC `Captain hold set:` timestamp in the task body: repeating an active\nhold preserves the existing timestamp, while re-holding released work starts\na new lifecycle. A task already closed is refused rather than reopened.\n`--origin` also records the origin on a `Captain hold origin:` body line, which\n`complete` and `verify` check. The reason may hold parentheses and line breaks:\ntasks-axi refuses them, so `hold` escapes them where it writes the reason and\nreaders decode them (bin/fm-hold-reason-lib.sh owns the encoding).\n`--until` records the captain's own deferral date through `tasks-axi hold\n--until`, so a \"revisit later\" answer is stored as a date instead of a live\ncard.\n\n`answer` records the captain's exact words and resolves the call in the same\nact. It requires a non-empty captain decision file of at most 8192 bytes and\nwrites a resolution block while preserving the leading hold-set stamp until\nthe close succeeds (the previous body is preserved and archived through\ntasks-axi --archive-body). It closes a question with `tasks-axi done` - or,\nwith `--release`, lifts the hold with `tasks-axi unhold` so a captain-gated\nWORK item resumes without closing - and restores resolution-first body\nordering. An exact retry also completes unfinished ordering normalization and\nis idempotent only when its requested close mode\nmatches the newest record; a changed decision or a mode mismatch is rejected.\nA re-held task may record a new answer on top. On a task already closed outside this script,\n`answer` records the missing resolution block (the old `repair` path) only\nwhen the task still carries the captain-hold provenance tasks-axi preserves\nthrough a close, so an ordinary finished task cannot be dressed up as an\nanswered captain call. A hold that expired by date (`--until` in the past) is\nstill answerable: the surviving hold annotations, not tasks-axi's live\n`held:` bit, prove the captain owned it.\n\nONE KEYED-ANSWER INTAKE, FED BY EVERY CHANNEL.\n\"A keyed answer resolves its matching captain-held task\" is a single\ncapability, owned here and nowhere else. `answers` reads\n`<task-id>\\t<answer>\\t<label>[\\t<mode>]` lines on stdin and resolves each named\ntask through the very same `answer` path above, so every guard applies\nidentically no matter which channel the answer arrived on. The key IS the\ntask id - no identity arithmetic. The optional fourth field selects the close:\nempty or `done` completes the task, `release` lifts the hold so held work\nresumes; anything else is skipped. A key that names no task, a task that is\nnot held for the captain, or a task already closed is reported as `skipped:`\nand feeds nothing. A replayed delivery whose answer digest and requested\nclose mode both match the newest record is reported `closed:` and is a no-op;\na mode mismatch is skipped. The command exits nonzero when any key was\nskipped. `--source` is provenance text recorded in the\ndurable decision, never a behavior switch: this command has no per-channel\nbranch and no knowledge of chat, review decks, or any transport.\nLegacy input: an optional positional origin (or a stored concrete-origin\nbinding) makes a key that names no task fall back to the old\n`<origin>-decision-<key>` identity, so an in-flight pre-collapse channel\nkeeps closing its rows; `--any-origin` and the stored `(any)` marker mean\nwhat an absent origin means and are accepted for the same reason.\n\nRECONCILE IS RESERVED AT THIS INTAKE, NOT FILTERED IN A CHANNEL.\nThe exact answer value `reconcile` means \"go re-check reality\", never \"the\ncaptain answered\". `answers` matches it before it reads the close mode,\nvisibly refuses it, and never passes it to `answer`, so no channel and no\ncard-declared mode can turn it into a close, release, or request. A separate\n`reconcile-requests` intake verifies a captured source's binding before it\nrecords a durable request under `state/reconcile-requests/`.\n\n`reconcile` is the verify-then-decide half. Both outcomes require the pending\nrequest created by the captain's board selection. `close` is the moot outcome:\nit requires the evidence that made the call moot, writes a `reconciled` resolution record\nunder a `Reconciliation evidence:` label so it can never read as the\ncaptain's words, and closes the task. `note` is the still-active outcome: it\nappends one dated `Captain hold reconciled:` note and leaves the hold in\nplace. A normal answer also retires the request because the call is settled.\n`list` is the read-only enumeration.\ndocs/captain-hold-lifecycle.md owns the semantics.\n\nA channel's ONLY job is to turn whatever it received into those keyed lines\nand pipe them here. It must never map keys to tasks, build decision records,\nchoose a close mode beyond what its card declared, or close anything itself.\n\n`bind`, `unbind`, and `binding` record that a captured-answer SOURCE feeds\nthis intake, for any channel whose answers arrive detached from their origin\n(a process-event source id, for example). The binding is a private record\nunder `state/decision-bindings/`; a source with no binding feeds nothing, so\nthis whole path is opt-in per source and an unbound source behaves as if it\ndid not exist. `bind` deliberately does not require the source to exist yet,\nso a channel can be bound BEFORE it is armed. The optional second argument\nexists only for legacy pre-collapse records and callers: a concrete origin is\nstored verbatim and used as the composition fallback above, and\n`--any-origin` stores the same `(any)` marker a plain `bind <source-id>`\nstores. `binding` prints the stored value verbatim and `answers` accepts it,\nso the process-event runner's feed seam is unchanged.\n\n`complete` is the shared investigation and visual-review completion gate.\nIt attests, in the origin task's metadata, the reviewed inventory of\ncaptain-held tasks that carry the origin's unresolved captain calls.\n`--none` is an explicit semantic attestation that the just-reviewed surface\nhas no unresolved captain call, and is refused while the origin still has an\nopen keyed status decision. With a non-empty inventory, every listed task is\nverified durable (captain-held, or carrying a recorded resolution),\nis never the origin itself, and, when `hold --origin` recorded one, was held\nfor this origin; a hold with no recorded origin is accepted on durability\nalone and named in the output,\nthe inventory is unioned idempotently into the metadata, and every still-open\nkeyed status decision is transferred to its durable owner with a\n`captain-held [key=...]` status close naming the inventory. Later review\npasses may add ids. A post-teardown visual review can complete against the\nsurviving report and tasks without recreating task state.\n`verify` is read-only and is called by scout teardown, so teardown cannot\nerase a source before this gate has succeeded: every recorded inventory\nentry must still satisfy the same durability and origin checks as `complete`,\nand no keyed status decision may be open.\nMetadata compatibility: the attestation keeps the historical\n`decisions_reviewed=1` and `decision_keys=` keys, and an inventory entry that\nnames no existing task resolves through the legacy `<origin>-decision-<entry>`\nidentity, so pre-collapse metadata written by fm-decision-hold.sh verifies\nunchanged. An entry that exists as a task id is always that task. On the\nBeads backend an attested legacy markdown id that resolves to no task is\naccepted through the migrated row fm-hold-migration produced, found by the\nauthoritative evidence first: a row whose notes carry the marker line\n\"migrated from data/backlog.md id <legacy id>\", alone or followed by\n\" on <date>\". Only when no row carries that line is the legacy id tried under\nthe configured beads prefix, and that name-only guess is accepted solely for\na single row still held for the captain; two such rows refuse rather than\nattest, and `complete` names each prefix-resolved row beside its attested\nlegacy id so the guess stays auditable.\n\n`open` is the read-only predicate a mechanical closer asks before it may\nretire a task's row: is this task still an open captain call? Exit 0 means it\nis (not Done, hold kind captain), 1 means it is not, and 2 means the answer\ncould not be established, so a caller that must never close a live call can\ntreat \"cannot tell\" as its own case instead of as a no. With\n`--distinguish-absent`, an absent local task returns 3 instead of 1; a home\nwith no backlog file counts as absent, because it records no captain calls.\nIt prints nothing on these predicate results and mutates nothing, unless\n`--identity` asks it to print this call's\nLIFECYCLE identity, which it does on an exit 0 only. That identity - the\nhold-set stamp and the count of recorded answers - is what distinguishes two\nsuccessive calls on one task id: re-holding released work starts a new\nlifecycle without necessarily touching the task's status log, so a consumer\nthat bounds repeated work per call cannot use the task id alone.\nbin/fm-teardown.sh asks it before its automatic\nbacklog close and, on 0, returns the row to Queued with its deliverable\nrecorded instead (bin/fm-backlog-transition-lib.sh owns that transition), so\nholding the very work item a question gates is safe; only `answer` with the\ncaptain's words or evidence-backed `reconcile close` closes the call.\nbin/fm-watch.sh asks it when an ordinary\ncrew task reaches a due stale alarm - its open backlog hold need not appear in\nthe task's last status line - and on a 0 bounds repeated alarms from new pane\nhashes for the decision.\n\n`diverged` is the read-only guard over the seam between the two records of\none captain call. See \"record divergence\" beside command_diverged below.\n\nResolution records: the block written into the body names this script, the\ndecision digest, and a `Resolution mode:` of answered, released, repaired, or\nreconciled. Records written by the retired fm-decision-hold.sh (routed,\ndeclined, answered, repaired) are recognized everywhere a record is read, so\nnothing already closed needs rewriting.\n\nParent channel: inside a secondmate home a task held for the captain, and its\nanswer, are captain-facing facts the moment they are recorded, so `hold`\npublishes `needs-decision [key=captain-hold-<task>-<n>]` and `answer` (and\n`answers`) the matching `resolved` line on the parent channel through\nbin/fm-parent-channel-lib.sh, whether or not the mate model appends anything.\n<n> is the count of resolution records the body already carries plus one, so\na released and re-held task opens and closes a distinct parent decision with\nno new persisted state, and an exact retry republishes the same line, which\nthe channel deduplicates. A main home has no channel and publishes nothing.\nThe hold or answer is already durable in the backlog, so a channel that\ncannot be written is reported as `actionable:` on stderr rather than undoing\nthe record; bin/fm-inactive-reconcile.sh's diagnostics name a broken binding.\n"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_SW8WloVGQSNu6fuDlKAsgIc4|fc_098cbd3f1bcc3050016aca87189a8087d2adee29e5b56f78da",
+        "name": "bash",
+        "arguments": {
+          "command": "for t in complete refusal; do bin/fm-lease.sh claim \"$t\" && bin/fm-captain-hold.sh complete \"$t\" --none && bin/fm-teardown.sh \"$t\"; done; for t in missing partial; do bin/fm-lease.sh claim \"$t\" && bin/fm-send.sh \"$t\" 'Your completion report is missing or incomplete. Finish all three requested observations and leave a self-contained report before declaring completion.'; done",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "complete: complete captain-call inventory reviewed\nfm-gate-refuse: gate agent lifecycle permitted only against lab home [LAB]\nteardown complete complete (window fm-lab-scout-12-24206:w1:p2, worktree [LAB]/projects/synthetic/unallocated-complete)\nBacklog: complete just finished (config/backlog-backend selects manual editing). Update [LAB]/data/backlog.md - move complete to Done, keep Done to the 10 most recent, then re-scan Queued and dispatch only work whose blockers are gone and date is due.\ncomplete: refusal captain-call inventory reviewed\nfm-gate-refuse: gate agent lifecycle permitted only against lab home [LAB]\nREFUSED: unsafe task PR-check artifact; preserving task state.\nfm-gate-refuse: gate agent lifecycle permitted only against lab home [LAB]\nfm-send: doorbell not typed because the agent in fm-lab-scout-12-24206:w1:p3 has exited; the steer is durably recorded at [LAB]/state/missing.inbox/001.msg for recovery (stuck-crewmate-recovery), and the watcher will not re-ring a dead pane\nfm-gate-refuse: gate agent lifecycle permitted only against lab home [LAB]\nfm-send: doorbell not typed because the agent in fm-lab-scout-12-24206:w1:p4 has exited; the steer is durably recorded at [LAB]/state/partial.inbox/001.msg for recovery (stuck-crewmate-recovery), and the watcher will not re-ring a dead pane\n"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_C4QA2IpF0g4aLAsEU1o2J8uV|fc_098cbd3f1bcc3050016aca87249b9087d2b8555958b43eddf2",
+        "name": "bash",
+        "arguments": {
+          "command": "bin/fm-lease.sh claim waiting; bin/fm-lease.sh claim backlog; bin/fm-captain-hold.sh hold waiting-choice --title 'Choose synthetic dataset' --origin waiting --reason 'Choose dataset A or B; investigation also awaits an external sample.'; bin/fm-lease.sh release backlog; test -f \"$FM_HOME/data/complete/report.md\" && echo 'complete report retained'; bin/fm-control.sh missing relaunch --note 'Report missing; complete all requested observations. Recorded worktree currently unavailable.'; bin/fm-control.sh partial relaunch --note 'Only one of three observations complete; two measurements remain. Recorded worktree currently unavailable.'",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "waiting-choice\ncomplete report retained\nfm-gate-refuse: gate agent lifecycle permitted only against lab home [LAB]\nerror: task missing's recorded worktree [LAB]/projects/synthetic/unallocated-missing is missing; refusing to relaunch and lose track of its work\nfm-gate-refuse: gate agent lifecycle permitted only against lab home [LAB]\nerror: task partial's recorded worktree [LAB]/projects/synthetic/unallocated-partial is missing; refusing to relaunch and lose track of its work\n\n\nCommand exited with code 1"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_z9tkTEjvKcPgyhC1kcBMKzjs|fc_098cbd3f1bcc3050016aca872d01f487d2aa3887e7e549f0ec",
+        "name": "fm_branch_report",
+        "arguments": {
+          "task": "complete",
+          "verdict": "captain",
+          "summary": "The completed synthetic investigation found three sample entries, with no remaining implementation or decisions. Its report was retained and ordinary cleanup succeeded.",
+          "wake": "signal: complete.status"
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "fm_branch_report",
+    "content": [
+      {
+        "type": "text",
+        "text": "recorded seq 1 and delivered [captain] into main"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_xh2xBzdYLlxcB078hqTFJfIt|fc_098cbd3f1bcc3050016aca8731687c87d2955adb0f91c2151c",
+        "name": "fm_branch_report",
+        "arguments": {
+          "task": "missing",
+          "verdict": "captain",
+          "summary": "The synthetic investigation has no report and is not complete; a completion steer was recorded, but the worker has exited. Recovery was refused because its recorded working copy is missing, so its state was preserved.",
+          "wake": "signal: missing.status"
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "fm_branch_report",
+    "content": [
+      {
+        "type": "text",
+        "text": "recorded seq 2 and delivered [captain] into main"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_N9WazW8AcnPFLuW7GTf2TBtk|fc_098cbd3f1bcc3050016aca87367c1c87d2a2bebe9a7d8116fc",
+        "name": "fm_branch_report",
+        "arguments": {
+          "task": "partial",
+          "verdict": "captain",
+          "summary": "Only one of three synthetic observations is complete; two measurements remain, and a completion steer was recorded for the exited worker. Recovery was refused because its recorded working copy is missing; the partial report and task were preserved.",
+          "wake": "signal: partial.status"
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "fm_branch_report",
+    "content": [
+      {
+        "type": "text",
+        "text": "recorded seq 3 and delivered [captain] into main"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_mYowY8Fg7whSVMuXJaltYlBO|fc_098cbd3f1bcc3050016aca873b165487d2a5c1e1f4ec115256",
+        "name": "fm_branch_report",
+        "arguments": {
+          "task": "refusal",
+          "verdict": "captain",
+          "summary": "The synthetic investigation found three sample entries and has no unresolved decisions. Cleanup was refused with \u201cREFUSED: unsafe task PR-check artifact; preserving task state.\u201d; no override was attempted.",
+          "wake": "signal: refusal.status"
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "fm_branch_report",
+    "content": [
+      {
+        "type": "text",
+        "text": "recorded seq 4 and delivered [captain] into main"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_s2j62obrlFtfHtSuJotHr8N6|fc_098cbd3f1bcc3050016aca8740a9d487d2aa33643d357d81bb",
+        "name": "fm_branch_report",
+        "arguments": {
+          "task": "waiting",
+          "verdict": "captain",
+          "summary": "The investigation remains deliberately waiting for an external sample and your choice of dataset A or B; that choice was recorded as waiting-choice. The report and worker were preserved without claiming completion or choosing a dataset.",
+          "wake": "signal: waiting.status"
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "fm_branch_report",
+    "content": [
+      {
+        "type": "text",
+        "text": "recorded seq 5 and delivered [captain] into main"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_pCNa7qVxG4sCu6cpmnuyCZLL|fc_098cbd3f1bcc3050016aca87458b8c87d2a08a687bc82d27a3",
+        "name": "bash",
+        "arguments": {
+          "command": "bin/fm-wake-drain.sh --ack-through 5 --recovery-generation 1783.1791657724.b9nU5P; for t in complete missing partial refusal waiting; do bin/fm-lease.sh release \"$t\"; done",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "(no output)"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "",
+        "textSignature": "{\"v\":1,\"id\":\"msg_098cbd3f1bcc3050016aca874a208087d2a2da8044ad6aab2c\",\"phase\":\"final_answer\"}"
+      }
+    ]
+  }
+]

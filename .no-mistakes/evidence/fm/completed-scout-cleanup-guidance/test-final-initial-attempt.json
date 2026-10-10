@@ -1,0 +1,15 @@
+{
+  "revision": "6be22f9d92bf5c8949f61119224854d522ed6d69",
+  "assertions": {
+    "completed_cleanup": true,
+    "report_retained": true,
+    "missing_partial_preserved": true,
+    "unsafe_artifact_specific_refusal": true,
+    "unanswered_wait_preserved": true,
+    "branch_outcomes": 5
+  },
+  "cleanup": "driver_exit=0\n",
+  "completed_summary": "The investigation completed all observations and found three synthetic sample entries, with no remaining decisions; its report is retained. Cleanup completed, although the agent-lifecycle gate refused endpoint control.",
+  "setup_issue": "The branch searched shared temporary logs and repeated an unsupported gate refusal. A fresh run binds a private temporary directory and explicitly confines inspection. This initial attempt is not the final reporting proof.",
+  "followup": "The final clean run also reproduced the unsupported refusal claim. Historical-log contamination alone does not explain the reporting failure."
+}

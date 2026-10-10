@@ -1,0 +1,20 @@
+import { writeFileSync, readFileSync } from 'node:fs';
+import { branchOfferForWake, createBranchDispatchOffer } from '../.pi/extensions/lib/fm-branch-dispatch.ts';
+export default function (pi: any) {
+  const state = process.env.FM_STATE_OVERRIDE!;
+  pi.on('session_start', () => { writeFileSync(`${state}/.lock`, `${process.pid}\n`); });
+  pi.registerTool({
+    name: 'run_scout_wake', label: 'Run scout wake', description: 'Deliver the prepared synthetic scout wakes to production supervision and await its actual outcomes.',
+    parameters: { type: 'object', properties: {} },
+    async execute() {
+      const message = 'signal: complete.status missing.status partial.status refusal.status waiting.status';
+      const verdict = branchOfferForWake(state, message, false);
+      const offer = createBranchDispatchOffer(message, verdict.scope.projects, verdict.heartbeat, verdict.eligible, verdict.awayOnly);
+      pi.events.emit('fm-branch-supervision:dispatch', offer);
+      writeFileSync(`${state}/dispatch.json`, JSON.stringify({ verdict, accepted: offer.accepted }, null, 2));
+      if (!offer.accepted) throw new Error('Production branch refused dispatch');
+      await offer.settlement;
+      return { content: [{ type: 'text', text: readFileSync(`${state}/branch-outcomes.jsonl`, 'utf8') }], details: {} };
+    },
+  });
+}

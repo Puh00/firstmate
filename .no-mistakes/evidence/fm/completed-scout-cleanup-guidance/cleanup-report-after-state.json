@@ -1,0 +1,27 @@
+{
+  "complete": {
+    "state/complete.meta": null,
+    "state/complete.status": null,
+    "data/complete/report.md": "# Completed investigation\n\nAll requested observations are complete. Finding: the synthetic sample has three entries. No implementation or captain decisions remain.\n"
+  },
+  "missing": {
+    "state/missing.meta": "project=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-missing\nwindow=fm-lab-scout-12-28738:w1:p3\nendpoint_task_id=missing\nherdr_session=fm-lab-scout-12-28738\nherdr_workspace_id=w1\nherdr_tab_id=w1:t3\nherdr_pane_id=w1:p3\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-missing\n",
+    "state/missing.status": "done: report ready\n",
+    "data/missing/report.md": null
+  },
+  "partial": {
+    "state/partial.meta": "project=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-partial\nwindow=fm-lab-scout-12-28738:w1:p4\nendpoint_task_id=partial\nherdr_session=fm-lab-scout-12-28738\nherdr_workspace_id=w1\nherdr_tab_id=w1:t4\nherdr_pane_id=w1:p4\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-partial\n",
+    "state/partial.status": "done: report ready\n",
+    "data/partial/report.md": "# Partial investigation\n\nOnly one of three requested observations is complete. Two measurements remain unperformed. This report is partial and the task must continue.\n"
+  },
+  "refusal": {
+    "state/refusal.meta": "project=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-refusal\nwindow=fm-lab-scout-12-28738:w1:p5\nendpoint_task_id=refusal\nherdr_session=fm-lab-scout-12-28738\nherdr_workspace_id=w1\nherdr_tab_id=w1:t5\nherdr_pane_id=w1:p5\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-refusal\ndecisions_reviewed=1\ndecision_keys=\n",
+    "state/refusal.status": "done: report ready\n",
+    "data/refusal/report.md": "# Completed investigation\n\nAll requested observations are complete. Finding: the synthetic sample has three entries. No implementation or captain decisions remain.\n"
+  },
+  "waiting": {
+    "state/waiting.meta": "project=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-waiting\nwindow=fm-lab-scout-12-28738:w1:p6\nendpoint_task_id=waiting\nherdr_session=fm-lab-scout-12-28738\nherdr_workspace_id=w1\nherdr_tab_id=w1:t6\nherdr_pane_id=w1:p6\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-waiting\n",
+    "state/waiting.status": "input: captain must choose dataset A or B; deliberately waiting for external sample\n",
+    "data/waiting/report.md": "# Waiting investigation\n\nThe captain has not chosen dataset A or B. Preserve that unanswered choice. The investigation is deliberately waiting for an external sample and is not complete.\n"
+  }
+}

@@ -1,0 +1,423 @@
+[
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_UMyfJ0XWbQhtKWfy0ZD6VLLL|fc_0b354e7403b7e199016aca879da8cc87d2bbd3545895dbfcd4",
+        "name": "bash",
+        "arguments": {
+          "command": "bin/fm-wake-drain.sh",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "1791657876\t1\tsignal\tcomplete.status\tsignal: complete.status\n1791657876\t2\tsignal\tmissing.status\tsignal: missing.status\n1791657876\t3\tsignal\tpartial.status\tsignal: partial.status\n1791657876\t4\tsignal\trefusal.status\tsignal: refusal.status\n1791657876\t5\tsignal\twaiting.status\tsignal: waiting.status\nWAKE_ACK_REQUIRED: after handling completes run bin/fm-wake-drain.sh --ack-through 5 --recovery-generation 1783.1791657887.Tc2qdJ\nwake annotation: latest wake-EVENT observed at drain, not current state: complete.status: done: report ready\nwake annotation: latest wake-EVENT observed at drain, not current state: missing.status: done: report ready\nwake annotation: latest wake-EVENT observed at drain, not current state: partial.status: done: report ready\nwake annotation: latest wake-EVENT observed at drain, not current state: refusal.status: done: report ready\nwake annotation: latest wake-EVENT observed at drain, not current state: waiting.status: input: captain must choose dataset A or B; deliberately waiting for external sample\n"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_3wdZJvwNr3D8v2u5TahxHdki|fc_0b354e7403b7e199016aca87a2486887d28e4d95f5b5aac4c8",
+        "name": "bash",
+        "arguments": {
+          "command": "ls bin; for t in complete missing partial refusal waiting; do bin/fm-crew-state.sh \"$t\"; done",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "backends\nfm-afk-contract.sh\nfm-afk-launch.sh\nfm-afk-return.sh\nfm-afk-start.sh\nfm-agent-process-lib.sh\nfm-agy-trust.sh\nfm-arm-command-policy.mjs\nfm-arm-pretool-check.sh\nfm-backend-hometag-lib.sh\nfm-backend.sh\nfm-backlog-handoff.sh\nfm-backlog-receive.sh\nfm-backlog-transition-lib.sh\nfm-bearings-board.sh\nfm-bearings-snapshot.sh\nfm-bootstrap.sh\nfm-branch-dispatch.mjs\nfm-branch-outcome.sh\nfm-branch-prompt.sh\nfm-branch-report.sh\nfm-brief-heading-lib.sh\nfm-brief.sh\nfm-busy-event.sh\nfm-busy-lib.sh\nfm-captain-hold.sh\nfm-cd-command-policy.mjs\nfm-cd-pretool-check.sh\nfm-check-lib.sh\nfm-check-register.sh\nfm-check-unregister.sh\nfm-classify-lib.sh\nfm-claude-stop-autoarm.sh\nfm-claude-trust.sh\nfm-composer-lib.sh\nfm-config-inherit-lib.sh\nfm-config-push.sh\nfm-contributions.jq\nfm-contributions.sh\nfm-control-lib.sh\nfm-control.sh\nfm-crew-state.sh\nfm-cursor-lib.sh\nfm-decision-hold.sh\nfm-devin-config.sh\nfm-dispatch-resolve.sh\nfm-doc-audience-check.sh\nfm-dod-lib.sh\nfm-ensure-agents-md.sh\nfm-env-lib.sh\nfm-exclude-tools-lib.sh\nfm-extension-launch-barrier.mjs\nfm-extension.mjs\nfm-extension.sh\nfm-ff-lib.sh\nfm-fleet-ledger.sh\nfm-fleet-snapshot.sh\nfm-fleet-sync.sh\nfm-fleet-view.sh\nfm-forge-detect.sh\nfm-gate-refuse-lib.sh\nfm-gemini-lib.sh\nfm-git-strip-ai-trailers.sh\nfm-guard.sh\nfm-harness.sh\nfm-herdr-ci-cleanup.sh\nfm-herdr-lab-viewer.py\nfm-herdr-lab.sh\nfm-herdr-session-cleanup.sh\nfm-hold-reason-lib.sh\nfm-home-seed.sh\nfm-home-summary-refresh.sh\nfm-hook-host-lib.sh\nfm-host-mirror.sh\nfm-inactive-reconcile.sh\nfm-inbox.sh\nfm-install-actionlint.sh\nfm-install-herdr.sh\nfm-install-shellcheck.sh\nfm-install-treehouse.sh\nfm-jev-mem-guard.py\nfm-jev-mem-guard.sh\nfm-kimi-turnend-hook.sh\nfm-lab-home.sh\nfm-landed-lib.sh\nfm-lease-lib.sh\nfm-lease.sh\nfm-line-cap-lib.sh\nfm-lint-workflows.sh\nfm-lint.sh\nfm-live-lab.sh\nfm-lock-lib.sh\nfm-lock.sh\nfm-mail-check.sh\nfm-mail.py\nfm-mail.sh\nfm-marker-lib.sh\nfm-merge-authority-lib.sh\nfm-merge-local.sh\nfm-merge-outcome-lib.sh\nfm-nm-run-lib.sh\nfm-on.sh\nfm-operational-input.sh\nfm-parent-channel-lib.sh\nfm-path-lib.sh\nfm-peek.sh\nfm-pending-reply-lib.sh\nfm-pipeline-spend.sh\nfm-pr-check.sh\nfm-pr-lib.sh\nfm-pr-merge.sh\nfm-pr-poll.sh\nfm-pr-reviewers.sh\nfm-pr-state.sh\nfm-primary-scope-lib.sh\nfm-procevent-extension-capture.pl\nfm-procevent-lavish.sh\nfm-procevent-lib.sh\nfm-procevent-quota.sh\nfm-procevent-remote-reply.sh\nfm-procevent-when.sh\nfm-procevent.sh\nfm-project-capacity-lib.sh\nfm-project-mode.sh\nfm-project-origin-lib.sh\nfm-promote.sh\nfm-public-followup-collect.sh\nfm-public-followup-emit.sh\nfm-public-followup-lib.sh\nfm-public-followup.sh\nfm-push-transition-lib.sh\nfm-quota-axi-lib.sh\nfm-quota-choose.sh\nfm-remote-delta-read.sh\nfm-remote-doctor.sh\nfm-remote-entrypoint.sh\nfm-remote-file.sh\nfm-remote-herdr-guard.sh\nfm-remote-herdr-owner-lib.sh\nfm-remote-home-provision.sh\nfm-remote-home-seed.sh\nfm-remote-inherit-push.sh\nfm-remote-inherit.sh\nfm-remote-job-lib.sh\nfm-remote-job-reap-orphans.sh\nfm-remote-job-worker.sh\nfm-remote-readiness-lib.sh\nfm-remote-secondmate-control.sh\nfm-remote-secondmate-relaunch.sh\nfm-review-diff.sh\nfm-secondmate-charter-lib.sh\nfm-secondmate-liveness-lib.sh\nfm-secondmate-nudge-lib.sh\nfm-secondmate-parent-lib.sh\nfm-secondmate-reconcile.sh\nfm-secondmate-registry-lib.sh\nfm-secondmate-report.sh\nfm-secondmate-restart-lib.sh\nfm-secondmate-restart.sh\nfm-send.sh\nfm-session-lock-lib.sh\nfm-session-start.sh\nfm-sessionstart-cursor.sh\nfm-sessionstart-nudge.sh\nfm-sessionstart-run.sh\nfm-spawn.sh\nfm-startup-growth-check.sh\nfm-startup-memory-budget-lib.sh\nfm-startup-memory-budget.sh\nfm-startup-network.sh\nfm-stow-cascade.sh\nfm-subagent-pretool-check.sh\nfm-supervise-daemon.sh\nfm-supervision-engine-lib.sh\nfm-supervision-host.sh\nfm-supervision-instructions.sh\nfm-supervision-lib.sh\nfm-supervisor-target-lib.sh\nfm-tangle-lib.sh\nfm-task-inbox-lib.sh\nfm-tasks-axi-lib.sh\nfm-tasks-axi.sh\nfm-teardown.sh\nfm-test-isolation-proof.sh\nfm-test-run.sh\nfm-timeout-lib.sh\nfm-timing-lib.sh\nfm-tmux-lib.sh\nfm-tool-update-check.sh\nfm-trace-context-lib.sh\nfm-transition-lib.sh\nfm-turnend-guard-cursor.sh\nfm-turnend-guard-grok.sh\nfm-turnend-guard.sh\nfm-update.sh\nfm-vendor-auth-probe.sh\nfm-voice-client.py\nfm-voice-relay.py\nfm-wake-drain.sh\nfm-wake-grant.sh\nfm-wake-lib.sh\nfm-watch-arm.sh\nfm-watch-checkpoint.sh\nfm-watch.sh\nfm-worker-account-lib.sh\nfm-x-dismiss.sh\nfm-x-followup.sh\nfm-x-lib.sh\nfm-x-link.sh\nfm-x-poll.sh\nfm-x-reply.sh\nfm_voice_frame.py\nfm_voice_records.py\nstate: unknown \u00b7 source: none \u00b7 worktree gone (torn down?)\nstate: unknown \u00b7 source: none \u00b7 worktree gone (torn down?)\nstate: unknown \u00b7 source: none \u00b7 worktree gone (torn down?)\nstate: unknown \u00b7 source: none \u00b7 worktree gone (torn down?)\nstate: unknown \u00b7 source: none \u00b7 worktree gone (torn down?)\n"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_RRgEErNjeZw5Z0DYtQcRMkyF|fc_0b354e7403b7e199016aca87a93ab087d29b961de4002e40f5",
+        "name": "bash",
+        "arguments": {
+          "command": "echo \"FM_HOME=$FM_HOME\"; ls state; find . -maxdepth 3 -iname '*synthetic*' -o -iname '*scout*test*'; cat state/{complete,missing,partial,refusal,waiting}.meta 2>/dev/null",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "FM_HOME=[LAB]\n\n\nCommand exited with code 1"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_WbFLLGxSVjv4tm0HcPjtYs9d|fc_0b354e7403b7e199016aca87adddec87d28644c48e5e49131f",
+        "name": "bash",
+        "arguments": {
+          "command": "ls -la \"$FM_HOME\"; ls \"$FM_HOME/state\"; cat \"$FM_HOME\"/state/{complete,missing,partial,refusal,waiting}.meta; find .test-evidence -maxdepth 3 -type f | head -60",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "total 28\ndrwxrwxr-x  6 root root 4096 Oct 10 20:44 .\ndrwxrwxr-x 10 root root 4096 Oct 10 20:44 ..\n-rw-rw-r--  1 root root   15 Oct 10 20:44 .fm-lab-home\ndrwxrwxr-x  2 root root 4096 Oct 10 20:44 config\ndrwxrwxr-x  7 root root 4096 Oct 10 20:44 data\ndrwxrwxr-x  3 root root 4096 Oct 10 20:44 projects\ndrwxrwxr-x  3 root root 4096 Oct 10 20:44 state\nbranch-session\ncomplete.meta\ncomplete.status\ndispatch.json\nmissing.meta\nmissing.status\npartial.meta\npartial.status\nrefusal.check.sh\nrefusal.meta\nrefusal.status\nwaiting.meta\nwaiting.status\nproject=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-complete\nwindow=fm-lab-scout-12-28738:w1:p2\nendpoint_task_id=complete\nherdr_session=fm-lab-scout-12-28738\nherdr_workspace_id=w1\nherdr_tab_id=w1:t2\nherdr_pane_id=w1:p2\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-complete\ndecisions_reviewed=1\ndecision_keys=\nproject=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-missing\nwindow=fm-lab-scout-12-28738:w1:p3\nendpoint_task_id=missing\nherdr_session=fm-lab-scout-12-28738\nherdr_workspace_id=w1\nherdr_tab_id=w1:t3\nherdr_pane_id=w1:p3\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-missing\nproject=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-partial\nwindow=fm-lab-scout-12-28738:w1:p4\nendpoint_task_id=partial\nherdr_session=fm-lab-scout-12-28738\nherdr_workspace_id=w1\nherdr_tab_id=w1:t4\nherdr_pane_id=w1:p4\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-partial\nproject=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-refusal\nwindow=fm-lab-scout-12-28738:w1:p5\nendpoint_task_id=refusal\nherdr_session=fm-lab-scout-12-28738\nherdr_workspace_id=w1\nherdr_tab_id=w1:t5\nherdr_pane_id=w1:p5\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-refusal\ndecisions_reviewed=1\ndecision_keys=\nproject=[LAB]/projects/synthetic\nworktree=[LAB]/projects/synthetic/unallocated-waiting\nwindow=fm-lab-scout-12-28738:w1:p6\nendpoint_task_id=waiting\nherdr_session=fm-lab-scout-12-28738\nherdr_workspace_id=w1\nherdr_tab_id=w1:t6\nherdr_pane_id=w1:p6\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-waiting\n.test-evidence/driver.sh\n.test-evidence/prompt-after.log\n.test-evidence/after/refusal.endpoint.json\n.test-evidence/after/waiting.endpoint.json\n.test-evidence/after/workspace.json\n.test-evidence/after/guard.log\n.test-evidence/after/complete.endpoint.json\n.test-evidence/after/primary-output.jsonl\n.test-evidence/after/herdr-lower/config.toml\n.test-evidence/after/herdr-lower/session.json\n.test-evidence/after/herdr-lower/herdr-server.log\n.test-evidence/after/herdr-lower/.plugins.lock\n.test-evidence/after/herdr-lower/herdr-client.log\n.test-evidence/after/herdr-upper/.plugins.lock\n.test-evidence/after/tested.patch\n.test-evidence/after/primary-stderr.log\n.test-evidence/after/protected\n.test-evidence/after/partial.endpoint.json\n.test-evidence/after/helper-state/fm-lab-scout-12-28738.fleet-state.json\n.test-evidence/after/missing.endpoint.json\n.test-evidence/after/home/.fm-lab-home\n.test-evidence/after/primary.jsonl\n.test-evidence/after/provenance.txt\n.test-evidence/after.log\n.test-evidence/before.log\n.test-evidence/prompt-before.log\n.test-evidence/inject.ts\n.test-evidence/export.py\n.test-evidence/assert-live.py\n"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_tBOZwBNeJuZE2JoaETGxYrzD|fc_0b354e7403b7e199016aca87b264fc87d287a6342fa0f7dd82",
+        "name": "bash",
+        "arguments": {
+          "command": "find \"$FM_HOME/data\" -type f; cat \"$FM_HOME/data/backlog.md\"; cat .test-evidence/driver.sh | head -100; cat \"$FM_HOME/state/refusal.check.sh\"",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "[LAB]/data/partial/brief.md\n[LAB]/data/partial/report.md\n[LAB]/data/complete/brief.md\n[LAB]/data/complete/report.md\n[LAB]/data/missing/brief.md\n[LAB]/data/refusal/brief.md\n[LAB]/data/refusal/report.md\n[LAB]/data/waiting/brief.md\n[LAB]/data/waiting/report.md\ncat: [LAB]/data/backlog.md: No such file or directory\n#!/usr/bin/env bash\nset -euo pipefail\nROOT=$PWD\nRUN=$ROOT/.test-evidence/${LIVE_CASE:?}\nmkdir -p \"$RUN\"/{herdr-lower,herdr-upper,herdr-work,pi-upper,pi-work}\n[ \"${NO_MISTAKES_GATE+x}\" = x ]\n[ \"${FM_GATE_REFUSE_BYPASS:-}\" != 1 ]\nprintf 'gate_marker=present\\nbypass=inactive\\n' > \"$RUN/provenance.txt\"\ngit rev-parse HEAD >> \"$RUN/provenance.txt\"\ngit diff --binary > \"$RUN/tested.patch\"\nsha256sum \"$RUN/tested.patch\" >> \"$RUN/provenance.txt\"\nmkdir -p \"$RUN/tmp\"\nmount --bind \"$RUN/tmp\" /tmp\n# Redirect named-session and Pi incidental writes into the worktree.\nmount --bind ${HOME}/.config/herdr \"$RUN/herdr-lower\"\nmount -t overlay overlay -o \"lowerdir=$RUN/herdr-lower,upperdir=$RUN/herdr-upper,workdir=$RUN/herdr-work\" ${HOME}/.config/herdr\nmount --bind \"$RUN/herdr-lower/herdr.sock\" ${HOME}/.config/herdr/herdr.sock\nmount -t overlay overlay -o \"lowerdir=${HOME}/.pi/agent,upperdir=$RUN/pi-upper,workdir=$RUN/pi-work\" ${HOME}/.pi/agent\nexport HISTFILE=$RUN/shell-history\nexport FM_HERDR_LAB_STATE_DIR=$RUN/helper-state\nLAB_SESSION=$(bash bin/fm-herdr-lab.sh name scout)\nexport LAB_SESSION\ncleanup() {\n  rc=$?\n  trap - EXIT\n  if [ -f \"$FM_HERDR_LAB_STATE_DIR/$LAB_SESSION.fleet-state.json\" ]; then\n    bash \"$ROOT/bin/fm-herdr-lab.sh\" teardown \"$LAB_SESSION\" > \"$RUN/cleanup.log\" 2>&1 || rc=1\n  fi\n  printf 'driver_exit=%s\\n' \"$rc\" >> \"$RUN/cleanup.log\"\n  exit \"$rc\"\n}\ntrap cleanup EXIT\nbash bin/fm-herdr-lab.sh provision \"$LAB_SESSION\"\nbash bin/fm-herdr-lab.sh run \"$LAB_SESSION\" workspace create --label firstmate > \"$RUN/workspace.json\"\nexport FM_HOME\nFM_HOME=$(bash bin/fm-lab-home.sh create \"$RUN/home\")\nexport FM_ROOT_OVERRIDE=$ROOT FM_STATE_OVERRIDE=$FM_HOME/state FM_CONFIG_OVERRIDE=$FM_HOME/config\nbash -c '. bin/fm-gate-refuse-lib.sh; fm_refuse_if_gate_agent' > \"$RUN/guard.log\" 2>&1\nprintf 'openai/gpt-6.1-sol\\n' > \"$FM_HOME/config/supervision-branch-model\"\nprintf 'low\\n' > \"$FM_HOME/config/supervision-branch-effort\"\nprintf 'manual\\n' > \"$FM_HOME/config/backlog-backend\"\nprintf 'off\\n' > \"$FM_HOME/config/herdr-presentation-spaces\"\nmkdir -p \"$FM_HOME/projects/synthetic\"\nfor task in complete missing partial refusal waiting; do\n  mkdir -p \"$FM_HOME/data/$task\"\n  bash bin/fm-herdr-lab.sh run \"$LAB_SESSION\" tab create --cwd \"$FM_HOME/projects/synthetic\" --label \"fm-$task\" --no-focus > \"$RUN/$task.endpoint.json\"\n  pane=$(jq -r '.result.root_pane.pane_id' \"$RUN/$task.endpoint.json\")\n  [ \"$pane\" != null ]\n  cat > \"$FM_HOME/state/$task.meta\" <<EOF\nproject=$FM_HOME/projects/synthetic\nworktree=$FM_HOME/projects/synthetic/unallocated-$task\nwindow=$LAB_SESSION:$pane\nendpoint_task_id=$task\nherdr_session=$LAB_SESSION\nherdr_workspace_id=$(jq -r '.result.root_pane.workspace_id' \"$RUN/$task.endpoint.json\")\nherdr_tab_id=$(jq -r '.result.root_pane.tab_id' \"$RUN/$task.endpoint.json\")\nherdr_pane_id=$pane\nbackend=herdr\nharness=pi\nkind=scout\nmode=no-mistakes\nspawn_gen=live-scout-$task\nEOF\n  printf 'Scout task %s: inspect the synthetic sample and report the complete observations. No implementation is requested.\\n' \"$task\" > \"$FM_HOME/data/$task/brief.md\"\n  printf 'done: report ready\\n' > \"$FM_HOME/state/$task.status\"\ndone\nprintf '# Completed investigation\\n\\nAll requested observations are complete. Finding: the synthetic sample has three entries. No implementation or captain decisions remain.\\n' > \"$FM_HOME/data/complete/report.md\"\ncp \"$FM_HOME/data/complete/report.md\" \"$FM_HOME/data/refusal/report.md\"\nprintf '# Partial investigation\\n\\nOnly one of three requested observations is complete. Two measurements remain unperformed. This report is partial and the task must continue.\\n' > \"$FM_HOME/data/partial/report.md\"\nprintf '# Waiting investigation\\n\\nThe captain has not chosen dataset A or B. Preserve that unanswered choice. The investigation is deliberately waiting for an external sample and is not complete.\\n' > \"$FM_HOME/data/waiting/report.md\"\nprintf 'input: captain must choose dataset A or B; deliberately waiting for external sample\\n' > \"$FM_HOME/state/waiting.status\"\nprintf 'protected content\\n' > \"$RUN/protected\"\nln -s \"$RUN/protected\" \"$FM_HOME/state/refusal.check.sh\"\nfor task in complete refusal; do\n  bash bin/fm-captain-hold.sh complete \"$task\" --none\n  bash bin/fm-captain-hold.sh verify \"$task\"\ndone\npython3 - <<'PY'\nimport os,time,pathlib\nhome=pathlib.Path(os.environ['FM_HOME'])\n(home/'state/.wake-queue').write_text(''.join(f'{int(time.time())}\\t{i}\\tsignal\\t{t}.status\\tsignal: {t}.status\\n' for i,t in enumerate(['complete','missing','partial','refusal','waiting'],1)))\nPY\npi --offline --no-extensions --no-skills --no-prompt-templates --no-themes --no-context-files --no-mcp --no-approve --no-builtin-tools --provider openai --model gpt-6.1-sol --thinking low --session \"$RUN/primary.jsonl\" --mode json --print -e \"$ROOT/.test-evidence/inject.ts\" -e \"$ROOT/.pi/extensions/fm-branch-supervision.ts\" --system-prompt 'All inspection is confined to the tracked working directory and the disposable FM_HOME. Never search /tmp or any other external directory for historical logs or fixtures. You are the real primary for a disposable Firstmate supervision integration test. Use the provided test tool once to deliver the prepared task wakes, then report the production supervision branch outcomes. You must not perform cleanup yourself. Preserve incomplete reports, unanswered choices and deliberate waits. Use fm_branch_processed to acknowledge outcomes if requested.' 'Handle the synthetic scout wakes using the provided test tool, then report the actual outcomes.' > \"$RUN/primary-output.jsonl\" 2> \"$RUN/primary-stderr.log\"\npython3 \"$ROOT/.test-evidence/assert-live.py\"\nprotected content\n"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_XLiqfzJh2yPgiFfOTajCTJ7i|fc_0b354e7403b7e199016aca87b677d087d2bcb924fb1a85093b",
+        "name": "bash",
+        "arguments": {
+          "command": "for t in complete partial refusal waiting; do cat \"$FM_HOME/data/$t/report.md\"; done; for t in complete missing partial refusal; do bin/fm-lease.sh claim \"$t\"; done",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "# Completed investigation\n\nAll requested observations are complete. Finding: the synthetic sample has three entries. No implementation or captain decisions remain.\n# Partial investigation\n\nOnly one of three requested observations is complete. Two measurements remain unperformed. This report is partial and the task must continue.\n# Completed investigation\n\nAll requested observations are complete. Finding: the synthetic sample has three entries. No implementation or captain decisions remain.\n# Waiting investigation\n\nThe captain has not chosen dataset A or B. Preserve that unanswered choice. The investigation is deliberately waiting for an external sample and is not complete.\n"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_qX1KVyyZIADUfKK5tizorX7Q|fc_0b354e7403b7e199016aca87baed0c87d2a4835e626be9d735",
+        "name": "bash",
+        "arguments": {
+          "command": "bin/fm-teardown.sh complete",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "fm-gate-refuse: gate agent lifecycle permitted only against lab home [LAB]\nteardown complete complete (window fm-lab-scout-12-28738:w1:p2, worktree [LAB]/projects/synthetic/unallocated-complete)\nBacklog: complete just finished (config/backlog-backend selects manual editing). Update [LAB]/data/backlog.md - move complete to Done, keep Done to the 10 most recent, then re-scan Queued and dispatch only work whose blockers are gone and date is due.\n"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_FcMPfqo7QWxnwDmMR1jfXWCH|fc_0b354e7403b7e199016aca87bffe7487d2b79306a0397f1c72",
+        "name": "bash",
+        "arguments": {
+          "command": "bin/fm-teardown.sh refusal",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "fm-gate-refuse: gate agent lifecycle permitted only against lab home [LAB]\nREFUSED: unsafe task PR-check artifact; preserving task state.\n\n\nCommand exited with code 1"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_vLzBq827UkrjtSirWmRnIeC2|fc_0b354e7403b7e199016aca87c4b5bc87d28590f532b82a2153",
+        "name": "bash",
+        "arguments": {
+          "command": "bin/fm-send.sh missing 'Your completion report is missing. Produce the self-contained report of all requested observations before declaring completion.'; bin/fm-send.sh partial 'The report completes only one of three observations. Continue the two remaining measurements and deliver the complete report; do not treat this partial report as completion.'",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "fm-gate-refuse: gate agent lifecycle permitted only against lab home [LAB]\nfm-send: doorbell not typed because the agent in fm-lab-scout-12-28738:w1:p3 has exited; the steer is durably recorded at [LAB]/state/missing.inbox/001.msg for recovery (stuck-crewmate-recovery), and the watcher will not re-ring a dead pane\nfm-gate-refuse: gate agent lifecycle permitted only against lab home [LAB]\nfm-send: doorbell not typed because the agent in fm-lab-scout-12-28738:w1:p4 has exited; the steer is durably recorded at [LAB]/state/partial.inbox/001.msg for recovery (stuck-crewmate-recovery), and the watcher will not re-ring a dead pane\n"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_Z02IWjoBdI94mxJnec4mycf9|fc_0b354e7403b7e199016aca87cb2ed487d2b1166a549516e4b0",
+        "name": "bash",
+        "arguments": {
+          "command": "bin/fm-tasks-axi.sh --help | head -65; bin/fm-lease.sh claim backlog",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "fm-tasks-axi.sh - run tasks-axi against THIS home's backlog from any working directory.\n\nUsage: fm-tasks-axi.sh [<tasks-axi command> [args...]]\n       fm-tasks-axi.sh --help\n\nEvery routine firstmate backlog read or mutation goes through this command\nrather than a bare `tasks-axi`; `fm-tasks-axi.sh <command> --help` prints\ntasks-axi's own help. Arguments reach tasks-axi as given, apart from one\nrewrite that keeps file arguments meaning what the caller meant: a relative\nvalue of `--to` or any `--*-file` flag (`--body-file`, `--relation-file`, ...)\nis made absolute against the caller's working directory, because tasks-axi\nstarts from the backlog root instead. `--report` stays as given: tasks-axi\nstores it verbatim as a link, which lifecycle transitions record relative to\nthat same root.\n\n`show` (including `view`) and `list` decode stored captain-hold reasons\nthrough bin/fm-hold-reason-lib.sh, which owns the field-only decoding contract.\nDecoded reasons use quoted strings so embedded line breaks remain intact.\n\nWhy it exists: a bare `tasks-axi` resolves the tracked `.tasks.toml` paths\nagainst its working directory, so from the code root it forks the queue\nwhenever the home lives elsewhere; docs/configuration.md (\"Backlog backend\")\nowns that rationale.\n\nAddressing is bin/fm-backlog-transition-lib.sh's fm_backlog_tasks_axi_addressing,\nthe same resolution the lifecycle transitions use: tasks-axi runs from the\nconfigured data directory's parent, so that home's own `.tasks.toml` (or\ntasks-axi's built-in defaults, which keep the archive beside the backlog)\nsupplies the adapter, done_keep, and the archive path; a markdown backlog is\nadditionally pinned to `<data>/backlog.md` through TASKS_AXI_FILE. The\nenvironment carries the pin rather than a trailing --file so the no-command\ndashboard works too. A configured non-markdown adapter is addressed by that\nroot alone, so an inherited TASKS_AXI_FILE is cleared for it.\n\nThe data directory is FM_DATA_OVERRIDE, else $FM_HOME/data, else the code\nroot's data/ (FM_HOME unset keeps the single-home layout unchanged).\n\nRefusals (exit 2, nothing run):\n  - tasks-axi missing from PATH;\n  - a caller-supplied --file, because this command owns the addressing and\n    tasks-axi would silently let the last --file win;\n  - `add` (or its `create` alias) with --start, so neither spelling places a\n    row In flight without the dispatch artifacts bin/fm-spawn.sh creates -\n    the task record, status file, and inbox that go with the row - which such\n    a row would lack, counting as live work nobody is doing that nothing\n    later would notice (`start <id>` stays a documented direct transition);\n  - a data directory that cannot be resolved, or whose backend configuration\n    cannot be read (bin/fm-tasks-axi-lib.sh owns that diagnostic);\n  - a markdown `<data>/backlog.md` that is itself a symlink, because the\n    first write would replace the link with a private copy, exactly the fork\n    this command exists to prevent. Lifecycle transitions refuse the same file.\nOtherwise the exit status is tasks-axi's own, unless decoding a read fails;\nin that case the decoder's nonzero status is returned.\n"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_IJV3iY2vbtC526mXsLKY7iC9|fc_0b354e7403b7e199016aca87d030ec87d28c4f5adad019bce4",
+        "name": "fm_branch_report",
+        "arguments": {
+          "task": "complete",
+          "verdict": "captain",
+          "summary": "The completed synthetic investigation found three sample entries, with no remaining implementation or captain decisions. Its report was retained and cleanup succeeded.",
+          "wake": "signal: complete.status"
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "fm_branch_report",
+    "content": [
+      {
+        "type": "text",
+        "text": "recorded seq 1 and delivered [captain] into main"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_wFUMlqGLUwpRXUpjCksv9cql|fc_0b354e7403b7e199016aca87d4383c87d2880bb1c866bdca83",
+        "name": "fm_branch_report",
+        "arguments": {
+          "task": "missing",
+          "verdict": "captain",
+          "summary": "The synthetic investigation has no completion report, so it was preserved rather than cleaned up. A request to produce the report was saved, but the worker has exited and its recorded working copy is unavailable, blocking safe continuation.",
+          "wake": "signal: missing.status"
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "fm_branch_report",
+    "content": [
+      {
+        "type": "text",
+        "text": "recorded seq 2 and delivered [captain] into main"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_Mi7h6MhvqQ49PRgIg1zE6dLT|fc_0b354e7403b7e199016aca87d868b087d29e9da8fb9189f29d",
+        "name": "fm_branch_report",
+        "arguments": {
+          "task": "partial",
+          "verdict": "captain",
+          "summary": "The synthetic investigation completed only one of three observations; two measurements remain, so its partial report and task were preserved. A continuation instruction was saved, but the worker has exited and its recorded working copy is unavailable, blocking safe continuation.",
+          "wake": "signal: partial.status"
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "fm_branch_report",
+    "content": [
+      {
+        "type": "text",
+        "text": "recorded seq 3 and delivered [captain] into main"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_R3tcF2n1q8YikIvAT3nPEieb|fc_0b354e7403b7e199016aca87dd48d487d2845423a2c0f344cf",
+        "name": "fm_branch_report",
+        "arguments": {
+          "task": "refusal",
+          "verdict": "captain",
+          "summary": "The synthetic investigation found three entries and its completed report was retained. Cleanup refused with the exact reason \u201cREFUSED: unsafe task PR-check artifact; preserving task state.\u201d; nothing was forced or discarded.",
+          "wake": "signal: refusal.status"
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "fm_branch_report",
+    "content": [
+      {
+        "type": "text",
+        "text": "recorded seq 4 and delivered [captain] into main"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_UAeddELPuF9qzT4DQ62FYkmC|fc_0b354e7403b7e199016aca87e358bc87d2bb3d879924d2f2ed",
+        "name": "fm_branch_report",
+        "arguments": {
+          "task": "waiting",
+          "verdict": "captain",
+          "summary": "The synthetic investigation remains incomplete pending your choice of dataset A or B and an external sample. The unanswered choice, report, and deliberate wait were preserved; no cleanup was attempted.",
+          "wake": "signal: waiting.status"
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "fm_branch_report",
+    "content": [
+      {
+        "type": "text",
+        "text": "recorded seq 5 and delivered [captain] into main"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "toolCall",
+        "id": "call_Gly5WLPIq6rPDaGohP12sJhJ|fc_0b354e7403b7e199016aca87e83c2087d281353c9055260288",
+        "name": "bash",
+        "arguments": {
+          "command": "bin/fm-wake-drain.sh --ack-through 5 --recovery-generation 1783.1791657887.Tc2qdJ; for t in complete missing partial refusal backlog; do bin/fm-lease.sh release \"$t\"; done",
+          "timeout": null
+        }
+      }
+    ]
+  },
+  {
+    "role": "toolResult",
+    "toolName": "bash",
+    "content": [
+      {
+        "type": "text",
+        "text": "(no output)"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "toolName": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "",
+        "textSignature": "{\"v\":1,\"id\":\"msg_0b354e7403b7e199016aca87efa50c87d2bfb9c4061c108484\",\"phase\":\"final_answer\"}"
+      }
+    ]
+  }
+]

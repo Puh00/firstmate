@@ -1,0 +1,10 @@
+{
+  "base_head": "6be22f9d92bf5c8949f61119224854d522ed6d69",
+  "patch_sha256": "e8ac2682d38f80f12319af77329348730ff1ead8965f2874b38d4b94302689db",
+  "managed_gate_git_provenance": true,
+  "files": {
+    "bin/fm-branch-prompt.sh": "7681a262ec85fafe87a7c632a12a397da6aaf121c3615f4cc56fb0d97ba75356",
+    "tests/fm-branch-supervision.test.sh": "24a8534a9cf63b4671fcd7a04b3ce37733685b362a99353083c927eb1903c37e"
+  },
+  "commit_creation": "Outer executor owns the commit; tested HEAD plus patch and file hashes identify exact bytes."
+}

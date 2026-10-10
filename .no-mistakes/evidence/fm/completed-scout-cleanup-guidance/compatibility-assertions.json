@@ -1,0 +1,8 @@
+{
+  "completed_cleanup": true,
+  "report_retained": true,
+  "missing_partial_preserved": true,
+  "unsafe_artifact_specific_refusal": true,
+  "unanswered_wait_preserved": true,
+  "branch_outcomes": 5
+}

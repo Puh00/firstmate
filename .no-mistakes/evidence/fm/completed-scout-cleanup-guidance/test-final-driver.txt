@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+set -euo pipefail
+ROOT=$PWD
+RUN=$ROOT/.test-evidence/final-live
+mkdir -p "$RUN"/{herdr-lower,herdr-upper,herdr-work,pi-upper,pi-work}
+[ "${NO_MISTAKES_GATE+x}" = x ]
+[ "${FM_GATE_REFUSE_BYPASS:-}" != 1 ]
+printf 'gate_marker=present\nbypass=inactive\n' > "$RUN/provenance.txt"
+git rev-parse HEAD >> "$RUN/provenance.txt"
+git diff --binary > "$RUN/tested.patch"
+sha256sum "$RUN/tested.patch" >> "$RUN/provenance.txt"
+mkdir -p "$RUN/tmp"
+mount --bind "$RUN/tmp" /tmp
+# Redirect named-session and Pi incidental writes into the worktree.
+mount --bind [USER]/.config/herdr "$RUN/herdr-lower"
+mount -t overlay overlay -o "lowerdir=$RUN/herdr-lower,upperdir=$RUN/herdr-upper,workdir=$RUN/herdr-work" [USER]/.config/herdr
+mount --bind "$RUN/herdr-lower/herdr.sock" [USER]/.config/herdr/herdr.sock
+mount -t overlay overlay -o "lowerdir=[USER]/.pi/agent,upperdir=$RUN/pi-upper,workdir=$RUN/pi-work" [USER]/.pi/agent
+export HISTFILE=$RUN/shell-history
+export FM_HERDR_LAB_STATE_DIR=$RUN/helper-state
+LAB_SESSION=$(bash bin/fm-herdr-lab.sh name scout)
+export LAB_SESSION
+cleanup() {
+  rc=$?
+  trap - EXIT
+  if [ -f "$FM_HERDR_LAB_STATE_DIR/$LAB_SESSION.fleet-state.json" ]; then
+    bash "$ROOT/bin/fm-herdr-lab.sh" teardown "$LAB_SESSION" > "$RUN/cleanup.log" 2>&1 || rc=1
+  fi
+  printf 'driver_exit=%s\n' "$rc" >> "$RUN/cleanup.log"
+  exit "$rc"
+}
+trap cleanup EXIT
+bash bin/fm-herdr-lab.sh provision "$LAB_SESSION"
+bash bin/fm-herdr-lab.sh run "$LAB_SESSION" workspace create --label firstmate > "$RUN/workspace.json"
+export FM_HOME
+FM_HOME=$(bash bin/fm-lab-home.sh create "$RUN/home")
+export FM_ROOT_OVERRIDE=$ROOT FM_STATE_OVERRIDE=$FM_HOME/state FM_CONFIG_OVERRIDE=$FM_HOME/config
+bash -c '. bin/fm-gate-refuse-lib.sh; fm_refuse_if_gate_agent' > "$RUN/guard.log" 2>&1
+printf 'openai/gpt-6.1-sol\n' > "$FM_HOME/config/supervision-branch-model"
+printf 'low\n' > "$FM_HOME/config/supervision-branch-effort"
+printf 'manual\n' > "$FM_HOME/config/backlog-backend"
+printf 'off\n' > "$FM_HOME/config/herdr-presentation-spaces"
+mkdir -p "$FM_HOME/projects/synthetic"
+for task in complete missing partial refusal waiting; do
+  mkdir -p "$FM_HOME/data/$task"
+  bash bin/fm-herdr-lab.sh run "$LAB_SESSION" tab create --cwd "$FM_HOME/projects/synthetic" --label "fm-$task" --no-focus > "$RUN/$task.endpoint.json"
+  pane=$(jq -r '.result.root_pane.pane_id' "$RUN/$task.endpoint.json")
+  [ "$pane" != null ]
+  cat > "$FM_HOME/state/$task.meta" <<EOF
+project=$FM_HOME/projects/synthetic
+worktree=$FM_HOME/projects/synthetic/unallocated-$task
+window=$LAB_SESSION:$pane
+endpoint_task_id=$task
+herdr_session=$LAB_SESSION
+herdr_workspace_id=$(jq -r '.result.root_pane.workspace_id' "$RUN/$task.endpoint.json")
+herdr_tab_id=$(jq -r '.result.root_pane.tab_id' "$RUN/$task.endpoint.json")
+herdr_pane_id=$pane
+backend=herdr
+harness=pi
+kind=scout
+mode=no-mistakes
+spawn_gen=live-scout-$task
+EOF
+  printf 'Scout task %s: inspect the synthetic sample and report the complete observations. No implementation is requested.\n' "$task" > "$FM_HOME/data/$task/brief.md"
+  printf 'done: report ready\n' > "$FM_HOME/state/$task.status"
+done
+printf '# Completed investigation\n\nAll requested observations are complete. Finding: the synthetic sample has three entries. No implementation or captain decisions remain.\n' > "$FM_HOME/data/complete/report.md"
+cp "$FM_HOME/data/complete/report.md" "$FM_HOME/data/refusal/report.md"
+printf '# Partial investigation\n\nOnly one of three requested observations is complete. Two measurements remain unperformed. This report is partial and the task must continue.\n' > "$FM_HOME/data/partial/report.md"
+printf '# Waiting investigation\n\nThe captain has not chosen dataset A or B. Preserve that unanswered choice. The investigation is deliberately waiting for an external sample and is not complete.\n' > "$FM_HOME/data/waiting/report.md"
+printf 'input: captain must choose dataset A or B; deliberately waiting for external sample\n' > "$FM_HOME/state/waiting.status"
+printf 'protected content\n' > "$RUN/protected"
+ln -s "$RUN/protected" "$FM_HOME/state/refusal.check.sh"
+for task in complete refusal; do
+  bash bin/fm-captain-hold.sh complete "$task" --none
+  bash bin/fm-captain-hold.sh verify "$task"
+done
+python3 - <<'PY'
+import os,time,pathlib
+home=pathlib.Path(os.environ['FM_HOME'])
+(home/'state/.wake-queue').write_text(''.join(f'{int(time.time())}\t{i}\tsignal\t{t}.status\tsignal: {t}.status\n' for i,t in enumerate(['complete','missing','partial','refusal','waiting'],1)))
+PY
+pi --offline --no-extensions --no-skills --no-prompt-templates --no-themes --no-context-files --no-mcp --no-approve --no-builtin-tools --provider openai --model gpt-6.1-sol --thinking low --session "$RUN/primary.jsonl" --mode json --print -e "$ROOT/.test-evidence/inject.ts" -e "$ROOT/.pi/extensions/fm-branch-supervision.ts" --system-prompt 'All inspection is confined to the tracked working directory and the disposable FM_HOME. Never search /tmp or any other external directory for historical logs or fixtures. You are the real primary for a disposable Firstmate supervision integration test. Use the provided test tool once to deliver the prepared task wakes, then report the production supervision branch outcomes. You must not perform cleanup yourself. Preserve incomplete reports, unanswered choices and deliberate waits. Use fm_branch_processed to acknowledge outcomes if requested.' 'Handle the synthetic scout wakes using the provided test tool, then report the actual outcomes.' > "$RUN/primary-output.jsonl" 2> "$RUN/primary-stderr.log"
+python3 "$ROOT/.test-evidence/assert-live.py"

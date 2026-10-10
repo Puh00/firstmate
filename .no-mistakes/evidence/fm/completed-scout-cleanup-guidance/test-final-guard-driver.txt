@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+set -eu
+root=$PWD
+lab=$(bash bin/fm-lab-home.sh create "$root/.test-evidence/guard-home")
+trap 'rm -rf "$lab" "$root/.test-evidence/guard-alias"' EXIT
+check() {
+  label=$1; shift
+  set +e
+  out=$(env FM_HOME="$lab" "$@" bash bin/fm-send.sh nonexistent ping 2>&1)
+  rc=$?
+  set -e
+  printf '%s: exit=%s %s\n' "$label" "$rc" "$out"
+  [ "$rc" = 3 ]
+}
+check escaped-state FM_STATE_OVERRIDE="$root/.test-evidence/outside"
+check alternate-root FM_ROOT_OVERRIDE="$lab"
+check unsupported-override FM_UNKNOWN_OVERRIDE="$lab/state"
+check noncanonical-state FM_STATE_OVERRIDE="$lab/state/../state"
+ln -s "$lab" "$root/.test-evidence/guard-alias"
+check symlink-home FM_HOME="$root/.test-evidence/guard-alias"
+mv "$lab/state" "$lab/state.saved"
+ln -s "$lab/state.saved" "$lab/state"
+check symlink-state
+rm "$lab/state"
+mv "$lab/state.saved" "$lab/state"
+mv "$lab/.fm-lab-home" "$lab/saved-marker"
+check missing-identity
+printf 'invalid\n' > "$lab/.fm-lab-home"
+check invalid-identity
+rm "$lab/.fm-lab-home"
+ln -s "$lab/saved-marker" "$lab/.fm-lab-home"
+check symlink-identity

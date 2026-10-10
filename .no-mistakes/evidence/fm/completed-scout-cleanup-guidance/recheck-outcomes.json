@@ -1,0 +1,57 @@
+[
+  {
+    "seq": 1,
+    "epoch": 1791658150,
+    "task": "complete",
+    "wake": "signal: complete.status",
+    "verdict": "captain",
+    "summary": "The completed synthetic investigation found three sample entries, with no implementation or captain decisions remaining; its report was retained and cleanup exited successfully. The cleanup also emitted a lifecycle allowance diagnostic, so successful endpoint closure was not independently confirmed.",
+    "silent": false,
+    "statusEndpoint": 0,
+    "statusIdent": "-"
+  },
+  {
+    "seq": 2,
+    "epoch": 1791658154,
+    "task": "refusal",
+    "wake": "signal: refusal.status",
+    "verdict": "captain",
+    "summary": "The synthetic investigation is complete and found three sample entries, with its report retained. Cleanup refused: \u201cREFUSED: unsafe task PR-check artifact; preserving task state.\u201d",
+    "silent": false,
+    "statusEndpoint": 19,
+    "statusIdent": "strong:2096:975331:2026-10-10 20:48:10.228063930 +0200"
+  },
+  {
+    "seq": 3,
+    "epoch": 1791658159,
+    "task": "missing",
+    "wake": "signal: missing.status",
+    "verdict": "captain",
+    "summary": "The synthetic investigation cannot be accepted as complete because its report is missing; no cleanup was attempted. A request to supply the report was durably recorded, but delivery reported that the worker had exited and could not be notified.",
+    "silent": false,
+    "statusEndpoint": 19,
+    "statusIdent": "strong:2096:975302:2026-10-10 20:48:10.195203368 +0200"
+  },
+  {
+    "seq": 4,
+    "epoch": 1791658165,
+    "task": "partial",
+    "wake": "signal: partial.status",
+    "verdict": "captain",
+    "summary": "The synthetic investigation remains incomplete: only one of three observations is documented, so no cleanup was attempted. A request to finish both remaining measurements was durably recorded, but delivery reported that the worker had exited and could not be notified.",
+    "silent": false,
+    "statusEndpoint": 19,
+    "statusIdent": "strong:2096:975322:2026-10-10 20:48:10.211633648 +0200"
+  },
+  {
+    "seq": 5,
+    "epoch": 1791658171,
+    "task": "waiting",
+    "wake": "signal: waiting.status",
+    "verdict": "captain",
+    "summary": "The synthetic investigation remains deliberately waiting for an external sample and the captain\u2019s choice of dataset A or B. It is not complete; its report and task were preserved without cleanup or an invented answer.",
+    "silent": false,
+    "statusEndpoint": 84,
+    "statusIdent": "strong:2096:975336:2026-10-10 20:48:10.244494211 +0200"
+  }
+]
